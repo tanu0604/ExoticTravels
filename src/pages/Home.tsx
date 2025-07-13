@@ -8,6 +8,19 @@ import StickyScroll from '../components/StickyScroll';
 
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    destination: '',
+    travelDates: '',
+    budget: '',
+    travelers: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const indianDestinations = destinations.filter(dest => dest.category === 'indian').slice(0, 6);
   const foreignDestinations = destinations.filter(dest => dest.category === 'foreign').slice(0, 6);
 
@@ -68,6 +81,57 @@ const Home: React.FC = () => {
     return () => clearInterval(timer);
   }, [heroImages.length]);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Simulate API call - replace with actual API endpoint
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Here you would typically send the data to your backend
+      console.log('Form submitted:', formData);
+      
+      // Reset form and show success message
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        destination: '',
+        travelDates: '',
+        budget: '',
+        travelers: '',
+        message: ''
+      });
+      
+      setSubmitStatus('success');
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      
+      // Reset error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="min-h-screen">
       {/* Modern Hero Section */}
@@ -408,7 +472,7 @@ const Home: React.FC = () => {
 
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-              <form className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="fullName" className="block text-sm font-bold text-gray-700 mb-3">
@@ -418,6 +482,8 @@ const Home: React.FC = () => {
                       type="text"
                       id="fullName"
                       name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
                       required
                       className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
                       placeholder="Enter your full name"
@@ -432,6 +498,8 @@ const Home: React.FC = () => {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       required
                       className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
                       placeholder="Enter your email address"
@@ -448,6 +516,8 @@ const Home: React.FC = () => {
                       type="tel"
                       id="phone"
                       name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       required
                       className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
                       placeholder="Enter your phone number"
@@ -461,6 +531,8 @@ const Home: React.FC = () => {
                     <select
                       id="destination"
                       name="destination"
+                      value={formData.destination}
+                      onChange={handleInputChange}
                       className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
                     >
                       <option value="">Select a destination</option>
@@ -494,6 +566,8 @@ const Home: React.FC = () => {
                       type="text"
                       id="travelDates"
                       name="travelDates"
+                      value={formData.travelDates}
+                      onChange={handleInputChange}
                       className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
                       placeholder="e.g., December 2024 or Flexible"
                     />
@@ -506,6 +580,8 @@ const Home: React.FC = () => {
                     <select
                       id="budget"
                       name="budget"
+                      value={formData.budget}
+                      onChange={handleInputChange}
                       className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
                     >
                       <option value="">Select budget range</option>
@@ -530,6 +606,8 @@ const Home: React.FC = () => {
                           type="radio"
                           name="travelers"
                           value={option}
+                          checked={formData.travelers === option}
+                          onChange={handleInputChange}
                           className="sr-only peer"
                         />
                         <div className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 text-center font-medium text-gray-700 cursor-pointer transition-all duration-300 peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-700 hover:border-gray-300 bg-white shadow-sm">
@@ -547,22 +625,78 @@ const Home: React.FC = () => {
                   <textarea
                     id="message"
                     name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     rows={5}
                     className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm resize-none"
                     placeholder="Share your travel preferences, special requirements, interests, or any specific requests..."
                   ></textarea>
                 </div>
 
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-6 text-center animate-bounce-in">
+                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-green-800 mb-2">Thank You!</h3>
+                    <p className="text-green-700">
+                      Your travel inquiry has been submitted successfully. Our travel experts will contact you within 24 hours with a personalized itinerary.
+                    </p>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 text-center animate-bounce-in">
+                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-white text-2xl">⚠️</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-red-800 mb-2">Oops! Something went wrong</h3>
+                    <p className="text-red-700 mb-4">
+                      There was an error submitting your form. Please try again or contact us directly.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <a href="tel:+919876543210" className="text-red-600 hover:text-red-800 font-medium">
+                        📞 Call: +91 98765 43210
+                      </a>
+                      <a href="https://wa.me/919876543210" className="text-red-600 hover:text-red-800 font-medium">
+                        💬 WhatsApp Us
+                      </a>
+                    </div>
+                  </div>
+                )}
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-2xl text-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center space-x-3 mx-auto"
+                    disabled={isSubmitting || submitStatus === 'success'}
+                    className={`group px-12 py-5 rounded-2xl text-lg font-bold transition-all duration-300 transform shadow-xl flex items-center justify-center space-x-3 mx-auto ${
+                      isSubmitting || submitStatus === 'success'
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105 hover:shadow-2xl'
+                    }`}
                   >
-                    <span>Get My Custom Itinerary</span>
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Submitting...</span>
+                      </>
+                    ) : submitStatus === 'success' ? (
+                      <>
+                        <CheckCircle className="h-5 w-5 text-white" />
+                        <span>Submitted Successfully!</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Get My Custom Itinerary</span>
+                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      </>
+                    )}
                   </button>
                   <p className="text-gray-500 text-sm mt-4">
-                    We'll get back to you within 24 hours with a personalized travel plan
+                    {submitStatus === 'success' 
+                      ? "Check your email for confirmation details" 
+                      : "We'll get back to you within 24 hours with a personalized travel plan"
+                    }
                   </p>
                 </div>
               </form>
