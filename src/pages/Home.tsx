@@ -390,6 +390,234 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Contact Form Section */}
+      <section className="section-padding bg-white">
+        <div className="container-width">
+          <div className="text-center mb-16 animate-slide-up">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <Sparkles className="h-4 w-4" />
+              <span>Get In Touch</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Plan Your <span className="text-blue-600">Dream Trip</span>
+            </h2>
+            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
+              Ready to start your adventure? Fill out the form below and our travel experts will create a personalized itinerary just for you
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
+              <form className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="fullName" className="block text-sm font-bold text-gray-700 mb-3">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="fullName"
+                      name="fullName"
+                      required
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-3">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
+                      placeholder="Enter your email address"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-3">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="destination" className="block text-sm font-bold text-gray-700 mb-3">
+                      Preferred Destination
+                    </label>
+                    <select
+                      id="destination"
+                      name="destination"
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
+                    >
+                      <option value="">Select a destination</option>
+                      <optgroup label="Indian Destinations">
+                        <option value="goa">Goa</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="manali">Manali</option>
+                        <option value="jaipur">Jaipur</option>
+                        <option value="andaman">Andaman Islands</option>
+                        <option value="ladakh">Ladakh</option>
+                      </optgroup>
+                      <optgroup label="International Destinations">
+                        <option value="bali">Bali, Indonesia</option>
+                        <option value="maldives">Maldives</option>
+                        <option value="dubai">Dubai, UAE</option>
+                        <option value="paris">Paris, France</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="thailand">Thailand</option>
+                      </optgroup>
+                      <option value="other">Other (Please specify in message)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="travelDates" className="block text-sm font-bold text-gray-700 mb-3">
+                      Preferred Travel Dates
+                    </label>
+                    <input
+                      type="text"
+                      id="travelDates"
+                      name="travelDates"
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
+                      placeholder="e.g., December 2024 or Flexible"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="budget" className="block text-sm font-bold text-gray-700 mb-3">
+                      Budget Range
+                    </label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm"
+                    >
+                      <option value="">Select budget range</option>
+                      <option value="under-25k">Under ₹25,000</option>
+                      <option value="25k-50k">₹25,000 - ₹50,000</option>
+                      <option value="50k-100k">₹50,000 - ₹1,00,000</option>
+                      <option value="100k-200k">₹1,00,000 - ₹2,00,000</option>
+                      <option value="above-200k">Above ₹2,00,000</option>
+                      <option value="flexible">Flexible</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="travelers" className="block text-sm font-bold text-gray-700 mb-3">
+                    Number of Travelers
+                  </label>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {['1 Person', '2 People', '3-4 People', '5+ People'].map((option, index) => (
+                      <label key={index} className="relative">
+                        <input
+                          type="radio"
+                          name="travelers"
+                          value={option}
+                          className="sr-only peer"
+                        />
+                        <div className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 text-center font-medium text-gray-700 cursor-pointer transition-all duration-300 peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-700 hover:border-gray-300 bg-white shadow-sm">
+                          {option}
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-3">
+                    Tell us about your dream trip
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 text-gray-800 font-medium bg-white shadow-sm resize-none"
+                    placeholder="Share your travel preferences, special requirements, interests, or any specific requests..."
+                  ></textarea>
+                </div>
+
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-2xl text-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center space-x-3 mx-auto"
+                  >
+                    <span>Get My Custom Itinerary</span>
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </button>
+                  <p className="text-gray-500 text-sm mt-4">
+                    We'll get back to you within 24 hours with a personalized travel plan
+                  </p>
+                </div>
+              </form>
+            </div>
+
+            {/* Contact Options */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              <a
+                href="tel:+919876543210"
+                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <span className="text-green-600 font-bold text-lg">📞</span>
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Call Us Now</h3>
+                <p className="text-gray-600 text-sm mb-3">Speak directly with our travel experts</p>
+                <p className="text-green-600 font-bold">+91 98765 43210</p>
+              </a>
+
+              <a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <span className="text-green-600 font-bold text-lg">💬</span>
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">WhatsApp Chat</h3>
+                <p className="text-gray-600 text-sm mb-3">Quick responses and instant support</p>
+                <p className="text-green-600 font-bold">Chat Now</p>
+              </a>
+
+              <Link
+                to="/contact"
+                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 font-bold text-lg">📧</span>
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Visit Our Office</h3>
+                <p className="text-gray-600 text-sm mb-3">Meet us in person for detailed planning</p>
+                <p className="text-blue-600 font-bold">Get Directions</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Modern CTA Section */}
       <section className="section-padding bg-gray-900 relative overflow-hidden">
         {/* Background Pattern */}
