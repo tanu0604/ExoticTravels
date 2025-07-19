@@ -29,13 +29,12 @@ const BackToTop: React.FC = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-20 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-500 z-40 animate-bounce-in-up hover:scale-110 group animate-float"
+          className="fixed bottom-20 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 z-40 hover:scale-110"
         >
-          <ArrowUp className="h-6 w-6 group-hover:animate-bounce transition-transform duration-300" />
+          <ArrowUp className="h-6 w-6" />
           
-          {/* Pulse rings */}
+          {/* Pulse ring */}
           <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-20"></div>
-          <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-15" style={{ animationDelay: '0.5s' }}></div>
         </button>
       )}
     </>

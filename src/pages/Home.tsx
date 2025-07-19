@@ -132,10 +132,11 @@ const Home: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className="min-h-screen">
-      {/* Modern Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden particle-bg">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Images Carousel */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -148,93 +149,79 @@ const Home: React.FC = () => {
               <img 
                 src={image} 
                 alt={`Hero ${index + 1}`}
-                className="w-full h-full object-cover animate-gradient"
+                className="w-full h-full object-cover"
               />
             </div>
           ))}
         </div>
 
-        {/* Modern Overlay */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
         
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-10 w-2 h-2 bg-blue-400 rounded-full animate-levitate"></div>
-          <div className="absolute top-1/3 right-20 w-3 h-3 bg-emerald-400 rounded-full animate-float"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-orange-400 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-3/4 left-1/2 w-1.5 h-1.5 bg-pink-400 rounded-full animate-float-delayed"></div>
-          <div className="absolute top-1/6 right-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-morph"></div>
-        </div>
-        
-        <div className="relative z-20 text-center text-white max-w-7xl mx-auto px-4 animate-fade-in">
-          <div className="stagger-animation">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium mb-8 animate-bounce-in hover:scale-105 transition-transform duration-300">
-              <CheckCircle className="h-4 w-4 text-emerald-400 animate-pulse" />
-              <span>Trusted by 10,000+ Travelers</span>
-            </div>
+        <div className="relative z-20 text-center text-white max-w-7xl mx-auto px-4">
+          {/* Trust Badge */}
+          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium mb-8">
+            <CheckCircle className="h-4 w-4 text-emerald-400" />
+            <span>Trusted by 10,000+ Travelers</span>
+          </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight animate-fade-in-up">
-              <span className="block text-white animate-slide-in-left text-shadow">Your Next</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-emerald-400 to-orange-400 animate-gradient text-shadow animate-glow">
-                Adventure
-              </span>
-              <span className="block text-white animate-slide-in-right text-shadow">Starts Here</span>
-            </h1>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
+            <span className="block text-white text-shadow">Your Next</span>
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-emerald-400 to-orange-400 text-shadow">
+              Adventure
+            </span>
+            <span className="block text-white text-shadow">Starts Here</span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-4xl mx-auto leading-relaxed font-light text-shadow">
+            Discover breathtaking destinations, create unforgettable memories, and experience the world like never before with our expertly curated travel packages
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+            <Link
+              to="/indian-trips"
+              className="group relative bg-white text-gray-900 px-12 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all duration-500 transform hover:scale-105 shadow-2xl flex items-center space-x-3 overflow-hidden"
+            >
+              <span>Explore Destinations</span>
+              <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2" />
+            </Link>
             
-            <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-4xl mx-auto leading-relaxed font-light animate-fade-in-up text-shadow">
-              Discover breathtaking destinations, create unforgettable memories, and experience the world like never before with our expertly curated travel packages
-            </p>
+            <button className="group flex items-center space-x-3 text-white hover:text-blue-300 transition-all duration-500">
+              <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-500">
+                <Play className="h-6 w-6 ml-1" />
+              </div>
+              <span className="text-lg font-medium">Watch Our Story</span>
+            </button>
+          </div>
 
-            {/* Modern CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16 stagger-animation">
-              <Link
-                to="/indian-trips"
-                className="group relative bg-white text-gray-900 px-12 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all duration-500 transform hover:scale-105 shadow-2xl flex items-center space-x-3 overflow-hidden animate-bounce-in hover:animate-heartbeat"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-emerald-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                <div className="absolute inset-0 shimmer-gradient opacity-0 group-hover:opacity-100"></div>
-                <span className="relative z-10">Explore Destinations</span>
-                <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-500 group-hover:translate-x-2 group-hover:scale-110" />
-              </Link>
-              
-              <button className="group flex items-center space-x-3 text-white hover:text-blue-300 transition-all duration-500 animate-bounce-in hover:scale-105">
-                <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 animate-float group-hover:animate-heartbeat">
-                  <Play className="h-6 w-6 ml-1 animate-pulse" />
-                </div>
-                <span className="text-lg font-medium animate-glow">Watch Our Story</span>
-              </button>
-            </div>
-
-            {/* Enhanced Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto stagger-animation">
-              {[
-                { number: '15+', label: 'Years Experience', icon: Award },
-                { number: '10K+', label: 'Happy Travelers', icon: Users },
-                { number: '200+', label: 'Destinations', icon: Globe },
-                { number: '24/7', label: 'Support', icon: Clock }
-              ].map((stat, index) => (
-                <div key={index} className="text-center animate-bounce-in bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-500 hover:scale-105 group" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <stat.icon className="h-8 w-8 text-blue-400 mx-auto mb-3 animate-float group-hover:animate-heartbeat" />
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 animate-glow">{stat.number}</div>
-                  <div className="text-sm md:text-base text-white/80 font-medium animate-fade-in">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {[
+              { number: '15+', label: 'Years Experience', icon: Award },
+              { number: '10K+', label: 'Happy Travelers', icon: Users },
+              { number: '200+', label: 'Destinations', icon: Globe },
+              { number: '24/7', label: 'Support', icon: Clock }
+            ].map((stat, index) => (
+              <div key={index} className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-500 hover:scale-105">
+                <stat.icon className="h-8 w-8 text-blue-400 mx-auto mb-3" />
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-sm md:text-base text-white/80 font-medium">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Modern Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30 animate-fade-in-up">
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
           {heroImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-1 rounded-full transition-all duration-500 hover:scale-125 ${
+              className={`h-1 rounded-full transition-all duration-500 ${
                 index === currentSlide 
-                  ? 'bg-white w-8 animate-pulse-glow' 
-                  : 'bg-white/50 hover:bg-white/75 w-4 animate-float'
+                  ? 'bg-white w-8' 
+                  : 'bg-white/50 hover:bg-white/75 w-4'
               }`}
             />
           ))}
@@ -242,14 +229,14 @@ const Home: React.FC = () => {
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-16 bg-white border-b border-gray-100 animate-fade-in">
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-slide-up">
-            <p className="text-gray-500 font-medium mb-8 animate-fade-in">Trusted by travelers worldwide</p>
-            <div className="flex flex-wrap items-center justify-center gap-12 opacity-60 stagger-animation">
+          <div className="text-center mb-12">
+            <p className="text-gray-500 font-medium mb-8">Trusted by travelers worldwide</p>
+            <div className="flex flex-wrap items-center justify-center gap-12 opacity-60">
               {['TripAdvisor', 'Google Reviews', 'Facebook', 'Instagram', 'YouTube'].map((platform, index) => (
-                <div key={index} className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 animate-bounce-in">
-                  <Star className="h-5 w-5 text-yellow-500 fill-current animate-pulse" />
+                <div key={index} className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300">
+                  <Star className="h-5 w-5 text-yellow-500 fill-current" />
                   <span className="text-gray-600 font-semibold hover:text-gray-800 transition-colors duration-300">{platform}</span>
                 </div>
               ))}
@@ -259,114 +246,110 @@ const Home: React.FC = () => {
       </section>
 
       {/* Sticky Scroll Experience Section */}
-      <section className="section-padding bg-gray-50 animate-fade-in">
+      <section className="section-padding bg-gray-50">
         <div className="container-width">
-          <div className="text-center mb-16 animate-slide-up stagger-animation">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-bounce-in hover:scale-105 transition-transform duration-300">
-              <TrendingUp className="h-4 w-4 animate-float" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <TrendingUp className="h-4 w-4" />
               <span>Why We're Different</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              Experience the <span className="text-blue-600 animate-glow">Exotic Difference</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Experience the <span className="text-blue-600">Exotic Difference</span>
             </h2>
-            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed animate-fade-in">
+            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
               We don't just plan trips—we craft experiences that transform the way you see the world
             </p>
           </div>
 
-          <div className="animate-fade-in">
-            <StickyScroll items={stickyScrollItems} />
-          </div>
+          <StickyScroll items={stickyScrollItems} />
         </div>
       </section>
 
       {/* Featured Indian Destinations */}
-      <section className="section-padding bg-white animate-fade-in">
+      <section className="section-padding bg-white">
         <div className="container-width">
-          <div className="text-center mb-16 animate-slide-up stagger-animation">
-            <div className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-bounce-in hover:scale-105 transition-transform duration-300">
-              <span className="animate-wave">🇮🇳</span>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <span>🇮🇳</span>
               <span>Incredible India</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              Discover <span className="text-emerald-600 animate-glow">Incredible India</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Discover <span className="text-emerald-600">Incredible India</span>
             </h2>
-            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed animate-fade-in">
+            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
               From pristine beaches to majestic mountains, explore India's diverse beauty with our expertly crafted experiences
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-animate">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {indianDestinations.map((destination) => (
               <DestinationCard key={destination.id} {...destination} />
             ))}
           </div>
 
-          <div className="text-center mt-16 animate-bounce-in">
+          <div className="text-center mt-16">
             <Link
               to="/indian-trips"
-              className="group inline-flex items-center space-x-3 bg-emerald-600 text-white px-10 py-5 rounded-2xl text-lg font-bold hover:bg-emerald-700 transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl animate-shimmer relative overflow-hidden"
+              className="group inline-flex items-center space-x-3 bg-emerald-600 text-white px-10 py-5 rounded-2xl text-lg font-bold hover:bg-emerald-700 transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
-              <div className="absolute inset-0 shimmer-gradient opacity-0 group-hover:opacity-100"></div>
               <span>Explore All Indian Destinations</span>
-              <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2 group-hover:scale-110" />
+              <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Featured Foreign Destinations */}
-      <section className="section-padding bg-gray-50 animate-fade-in">
+      <section className="section-padding bg-gray-50">
         <div className="container-width">
-          <div className="text-center mb-16 animate-slide-up stagger-animation">
-            <div className="inline-flex items-center space-x-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-bounce-in hover:scale-105 transition-transform duration-300">
-              <span className="animate-float">🌍</span>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <span>🌍</span>
               <span>International</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              <span className="text-purple-600 animate-glow">International</span> Adventures
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <span className="text-purple-600">International</span> Adventures
             </h2>
-            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed animate-fade-in">
+            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
               Experience the world's most beautiful destinations with our carefully curated international packages
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-animate">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {foreignDestinations.map((destination) => (
               <DestinationCard key={destination.id} {...destination} />
             ))}
           </div>
 
-          <div className="text-center mt-16 animate-bounce-in">
+          <div className="text-center mt-16">
             <Link
               to="/foreign-trips"
-              className="group inline-flex items-center space-x-3 bg-purple-600 text-white px-10 py-5 rounded-2xl text-lg font-bold hover:bg-purple-700 transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl animate-shimmer relative overflow-hidden"
+              className="group inline-flex items-center space-x-3 bg-purple-600 text-white px-10 py-5 rounded-2xl text-lg font-bold hover:bg-purple-700 transition-all duration-500 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
-              <div className="absolute inset-0 shimmer-gradient opacity-0 group-hover:opacity-100"></div>
               <span>Explore International Destinations</span>
-              <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2 group-hover:scale-110" />
+              <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us - Modern Grid */}
-      <section className="section-padding bg-white animate-fade-in">
+      {/* Why Choose Us */}
+      <section className="section-padding bg-white">
         <div className="container-width">
-          <div className="text-center mb-16 animate-slide-up stagger-animation">
-            <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-bounce-in hover:scale-105 transition-transform duration-300">
-              <Star className="h-4 w-4 animate-pulse" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <Star className="h-4 w-4" />
               <span>Why Choose Us</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              Why Choose <span className="text-orange-600 animate-glow">Exotic Travels</span>?
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Why Choose <span className="text-orange-600">Exotic Travels</span>?
             </h2>
-            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed animate-fade-in">
+            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
               15+ years of creating unforgettable journeys for thousands of satisfied travelers
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-animate">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Award,
@@ -423,12 +406,12 @@ const Home: React.FC = () => {
                 textColor: 'text-teal-600'
               }
             ].map((feature, index) => (
-              <div key={index} className={`group relative ${feature.lightBg} rounded-3xl p-8 hover:shadow-2xl transition-all duration-700 border border-gray-100 hover:border-gray-200 card-hover animate-scale-in`} style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg animate-float group-hover:animate-heartbeat`}>
-                  <feature.icon className="h-8 w-8 text-white animate-float-delayed" />
+              <div key={index} className={`group relative ${feature.lightBg} rounded-3xl p-8 hover:shadow-2xl transition-all duration-700 border border-gray-100 hover:border-gray-200 card-hover`}>
+                <div className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg`}>
+                  <feature.icon className="h-8 w-8 text-white" />
                 </div>
-                <h3 className={`text-xl font-bold ${feature.textColor} mb-4 group-hover:animate-glow transition-all duration-300`}>{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed animate-fade-in">{feature.description}</p>
+                <h3 className={`text-xl font-bold ${feature.textColor} mb-4 transition-all duration-300`}>{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -436,24 +419,24 @@ const Home: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-gray-50 animate-fade-in">
+      <section className="section-padding bg-gray-50">
         <div className="container-width">
-          <div className="text-center mb-16 animate-slide-up stagger-animation">
-            <div className="inline-flex items-center space-x-2 bg-pink-100 text-pink-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-bounce-in hover:scale-105 transition-transform duration-300">
-              <Heart className="h-4 w-4 animate-heartbeat" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-pink-100 text-pink-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <Heart className="h-4 w-4" />
               <span>Testimonials</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              What Our <span className="text-pink-600 animate-glow">Travelers</span> Say
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              What Our <span className="text-pink-600">Travelers</span> Say
             </h2>
-            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed animate-fade-in">
+            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
               Real experiences from satisfied customers who have created unforgettable memories with us
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 grid-animate">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="transform hover:scale-105 transition-transform duration-500 animate-bounce-in" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div key={index} className="transform hover:scale-105 transition-transform duration-500">
                 <TestimonialCard {...testimonial} />
               </div>
             ))}
@@ -462,27 +445,27 @@ const Home: React.FC = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="section-padding bg-white animate-fade-in">
+      <section className="section-padding bg-white">
         <div className="container-width">
-          <div className="text-center mb-16 animate-slide-up stagger-animation">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4 animate-bounce-in hover:scale-105 transition-transform duration-300">
-              <Sparkles className="h-4 w-4 animate-spin" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <Sparkles className="h-4 w-4" />
               <span>Get In Touch</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              Plan Your <span className="text-blue-600 animate-glow">Dream Trip</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Plan Your <span className="text-blue-600">Dream Trip</span>
             </h2>
-            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed animate-fade-in">
+            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
               Ready to start your adventure? Fill out the form below and our travel experts will create a personalized itinerary just for you
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 animate-scale-in card-hover">
-              <form onSubmit={handleSubmit} className="space-y-8 stagger-animation">
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 card-hover">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="fullName" className="block text-sm font-bold text-gray-700 mb-3 animate-fade-in">
+                    <label htmlFor="fullName" className="block text-sm font-bold text-gray-700 mb-3">
                       Full Name *
                     </label>
                     <input
@@ -498,7 +481,7 @@ const Home: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-3 animate-fade-in">
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-3">
                       Email Address *
                     </label>
                     <input
@@ -516,7 +499,7 @@ const Home: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-3 animate-fade-in">
+                    <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-3">
                       Phone Number *
                     </label>
                     <input
@@ -532,7 +515,7 @@ const Home: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="destination" className="block text-sm font-bold text-gray-700 mb-3 animate-fade-in">
+                    <label htmlFor="destination" className="block text-sm font-bold text-gray-700 mb-3">
                       Preferred Destination
                     </label>
                     <select
@@ -566,7 +549,7 @@ const Home: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="travelDates" className="block text-sm font-bold text-gray-700 mb-3 animate-fade-in">
+                    <label htmlFor="travelDates" className="block text-sm font-bold text-gray-700 mb-3">
                       Preferred Travel Dates
                     </label>
                     <input
@@ -581,7 +564,7 @@ const Home: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="budget" className="block text-sm font-bold text-gray-700 mb-3 animate-fade-in">
+                    <label htmlFor="budget" className="block text-sm font-bold text-gray-700 mb-3">
                       Budget Range
                     </label>
                     <select
@@ -603,10 +586,10 @@ const Home: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="travelers" className="block text-sm font-bold text-gray-700 mb-3 animate-fade-in">
+                  <label htmlFor="travelers" className="block text-sm font-bold text-gray-700 mb-3">
                     Number of Travelers
                   </label>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 stagger-animation">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {['1 Person', '2 People', '3-4 People', '5+ People'].map((option, index) => (
                       <label key={index} className="relative">
                         <input
@@ -626,7 +609,7 @@ const Home: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-3 animate-fade-in">
+                  <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-3">
                     Tell us about your dream trip
                   </label>
                   <textarea
@@ -642,27 +625,27 @@ const Home: React.FC = () => {
 
                 {/* Status Messages */}
                 {submitStatus === 'success' && (
-                  <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-6 text-center animate-bounce-in card-hover">
-                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-scale-in-bounce">
-                      <CheckCircle className="h-8 w-8 text-white animate-pulse" />
+                  <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-6 text-center card-hover">
+                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-green-800 mb-2 animate-glow">Thank You!</h3>
-                    <p className="text-green-700 animate-fade-in">
+                    <h3 className="text-lg font-bold text-green-800 mb-2">Thank You!</h3>
+                    <p className="text-green-700">
                       Your travel inquiry has been submitted successfully. Our travel experts will contact you within 24 hours with a personalized itinerary.
                     </p>
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
-                  <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 text-center animate-bounce-in card-hover">
-                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-scale-in-bounce">
-                      <span className="text-white text-2xl animate-shake">⚠️</span>
+                  <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 text-center card-hover">
+                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-white text-2xl">⚠️</span>
                     </div>
-                    <h3 className="text-lg font-bold text-red-800 mb-2 animate-glow">Oops! Something went wrong</h3>
-                    <p className="text-red-700 mb-4 animate-fade-in">
+                    <h3 className="text-lg font-bold text-red-800 mb-2">Oops! Something went wrong</h3>
+                    <p className="text-red-700 mb-4">
                       There was an error submitting your form. Please try again or contact us directly.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3 justify-center stagger-animation">
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <a href="tel:+919876543210" className="text-red-600 hover:text-red-800 font-medium hover:scale-105 transition-transform duration-300">
                         📞 Call: +91 98765 43210
                       </a>
@@ -672,37 +655,35 @@ const Home: React.FC = () => {
                     </div>
                   </div>
                 )}
-                <div className="text-center animate-bounce-in">
+
+                <div className="text-center">
                   <button
                     type="submit"
                     disabled={isSubmitting || submitStatus === 'success'}
                     className={`group px-12 py-5 rounded-2xl text-lg font-bold transition-all duration-500 transform shadow-xl flex items-center justify-center space-x-3 mx-auto relative overflow-hidden ${
                       isSubmitting || submitStatus === 'success'
                         ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105 hover:shadow-2xl animate-shimmer'
+                        : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105 hover:shadow-2xl'
                     }`}
                   >
-                    {!(isSubmitting || submitStatus === 'success') && (
-                      <div className="absolute inset-0 shimmer-gradient opacity-0 group-hover:opacity-100"></div>
-                    )}
                     {isSubmitting ? (
                       <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin relative z-10"></div>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                         <span>Submitting...</span>
                       </>
                     ) : submitStatus === 'success' ? (
                       <>
-                        <CheckCircle className="h-5 w-5 text-white animate-pulse relative z-10" />
+                        <CheckCircle className="h-5 w-5 text-white" />
                         <span>Submitted Successfully!</span>
                       </>
                     ) : (
                       <>
-                        <span className="relative z-10">Get My Custom Itinerary</span>
-                        <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2 group-hover:scale-110 relative z-10" />
+                        <span>Get My Custom Itinerary</span>
+                        <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2" />
                       </>
                     )}
                   </button>
-                  <p className="text-gray-500 text-sm mt-4 animate-fade-in">
+                  <p className="text-gray-500 text-sm mt-4">
                     {submitStatus === 'success' 
                       ? "Check your email for confirmation details" 
                       : "We'll get back to you within 24 hours with a personalized travel plan"
@@ -713,96 +694,87 @@ const Home: React.FC = () => {
             </div>
 
             {/* Contact Options */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 grid-animate">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
               <a
                 href="tel:+919876543210"
-                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:scale-105 text-center card-hover animate-bounce-in"
+                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:scale-105 text-center card-hover"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500 animate-float group-hover:animate-heartbeat">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
                   <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-green-600 font-bold text-lg animate-pulse">📞</span>
+                    <span className="text-green-600 font-bold text-lg">📞</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:animate-glow">Call Us Now</h3>
-                <p className="text-gray-600 text-sm mb-3 animate-fade-in">Speak directly with our travel experts</p>
-                <p className="text-green-600 font-bold animate-glow">+91 98765 43210</p>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Call Us Now</h3>
+                <p className="text-gray-600 text-sm mb-3">Speak directly with our travel experts</p>
+                <p className="text-green-600 font-bold">+91 98765 43210</p>
               </a>
 
               <a
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:scale-105 text-center card-hover animate-bounce-in"
+                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:scale-105 text-center card-hover"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500 animate-float group-hover:animate-heartbeat">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
                   <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-green-600 font-bold text-lg animate-pulse">💬</span>
+                    <span className="text-green-600 font-bold text-lg">💬</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:animate-glow">WhatsApp Chat</h3>
-                <p className="text-gray-600 text-sm mb-3 animate-fade-in">Quick responses and instant support</p>
-                <p className="text-green-600 font-bold animate-glow">Chat Now</p>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">WhatsApp Chat</h3>
+                <p className="text-gray-600 text-sm mb-3">Quick responses and instant support</p>
+                <p className="text-green-600 font-bold">Chat Now</p>
               </a>
 
               <Link
                 to="/contact"
-                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:scale-105 text-center card-hover animate-bounce-in"
+                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:scale-105 text-center card-hover"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500 animate-float group-hover:animate-heartbeat">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500">
                   <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-blue-600 font-bold text-lg animate-pulse">📧</span>
+                    <span className="text-blue-600 font-bold text-lg">📧</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:animate-glow">Visit Our Office</h3>
-                <p className="text-gray-600 text-sm mb-3 animate-fade-in">Meet us in person for detailed planning</p>
-                <p className="text-blue-600 font-bold animate-glow">Get Directions</p>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Visit Our Office</h3>
+                <p className="text-gray-600 text-sm mb-3">Meet us in person for detailed planning</p>
+                <p className="text-blue-600 font-bold">Get Directions</p>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Modern CTA Section */}
-      <section className="section-padding bg-gray-900 relative overflow-hidden particle-bg">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10 animate-float">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, white 2px, transparent 2px), radial-gradient(circle at 75% 75%, white 2px, transparent 2px)`,
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-
-        <div className="container-width relative z-10 animate-fade-in">
-          <div className="text-center animate-bounce-in stagger-animation">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium mb-8 hover:scale-105 transition-transform duration-300">
-              <Sparkles className="h-4 w-4 animate-spin" />
+      {/* CTA Section */}
+      <section className="section-padding bg-gray-900 relative overflow-hidden">
+        <div className="container-width relative z-10">
+          <div className="text-center">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium mb-8">
+              <Sparkles className="h-4 w-4" />
               <span>Start Your Journey Today</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 animate-fade-in-up">
-              Ready to Start Your <span className="text-yellow-400 animate-glow">Dream Journey</span>?
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+              Ready to Start Your <span className="text-yellow-400">Dream Journey</span>?
             </h2>
-            <p className="text-white/80 text-xl mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in">
+            <p className="text-white/80 text-xl mb-12 max-w-4xl mx-auto leading-relaxed">
               Book a free consultation with our travel experts and let us create your perfect itinerary. Your adventure of a lifetime is just one click away!
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 stagger-animation">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 to="/contact"
-                className="group bg-white text-gray-900 px-12 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all duration-500 transform hover:scale-105 shadow-2xl flex items-center space-x-3 animate-shimmer relative overflow-hidden"
+                className="group bg-white text-gray-900 px-12 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all duration-500 transform hover:scale-105 shadow-2xl flex items-center space-x-3"
               >
-                <div className="absolute inset-0 shimmer-gradient opacity-0 group-hover:opacity-100"></div>
                 <span>Book Free Consultation</span>
-                <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2 group-hover:scale-110" />
+                <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2" />
               </Link>
               <a
                 href="tel:+919876543210"
-                className="group flex items-center space-x-3 text-white hover:text-yellow-400 transition-all duration-500 hover:scale-105"
+                className="group flex items-center space-x-3 text-white hover:text-yellow-400 transition-all duration-500"
               >
-                <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 animate-float group-hover:animate-heartbeat">
-                  <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse group-hover:animate-ping"></div>
+                <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-500">
+                  <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                 </div>
                 <div className="text-left">
-                  <div className="text-lg font-bold animate-glow">Call Now</div>
-                  <div className="text-sm opacity-80 animate-fade-in">+91 98765 43210</div>
+                  <div className="text-lg font-bold">Call Now</div>
+                  <div className="text-sm opacity-80">+91 98765 43210</div>
                 </div>
               </a>
             </div>
