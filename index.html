@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -16,39 +15,108 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://exotictravels.com" />
   <title>Exotic Travels - Explore India & Beyond | Kolkata Travel Agency</title>
+  
+  <!-- Custom CSS to ensure Voiceflow launcher stays on the right -->
+  <style>
+    /* Force Voiceflow launcher to the right side */
+    .vf-widget-launcher,
+    [class*="vf-widget"],
+    [class*="voiceflow"] {
+      position: fixed !important;
+      right: 20px !important;
+      bottom: 20px !important;
+      left: auto !important;
+      z-index: 99999 !important;
+    }
+    
+    /* Additional selector for any potential wrapper */
+    #vf-chat .vf-widget-launcher {
+      position: fixed !important;
+      right: 20px !important;
+      bottom: 20px !important;
+      left: auto !important;
+    }
+  </style>
 </head>
-
 <body>
   <div id="root"></div>
-
-  <!-- 🔥 Add this div to render chatbot -->
+  <!-- Chatbot container -->
   <div id="vf-chat"></div>
-
   <script type="module" src="/src/main.tsx"></script>
-
-  <!-- Voiceflow Chatbot Script -->
+  
+  <!-- Voiceflow Chatbot Script with Enhanced Positioning -->
   <script type="text/javascript">
     (function (d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      const v = d.createElement(t);
+      const s = d.getElementsByTagName(t)[0];
+      
       v.onload = function () {
         window.voiceflow.chat.load({
           verify: { projectID: '6870a966ef0de914c799e6b4' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          },
           render: {
-            mode: 'overlay',  // popup style
-            align: 'right'    // right side of screen
+            mode: 'overlay'
           }
         });
-      }
+        
+        // Enhanced positioning function with multiple selectors
+        const repositionLauncher = () => {
+          // Try multiple possible selectors for the launcher
+          const selectors = [
+            '.vf-widget-launcher',
+            '[class*="vf-widget"]',
+            '[class*="voiceflow"]',
+            '#vf-chat > *',
+            'div[style*="position: fixed"]'
+          ];
+          
+          let launcher = null;
+          
+          // Find the launcher using any of the selectors
+          for (const selector of selectors) {
+            launcher = document.querySelector(selector);
+            if (launcher) break;
+          }
+          
+          if (launcher) {
+            // Apply positioning styles
+            launcher.style.setProperty('position', 'fixed', 'important');
+            launcher.style.setProperty('right', '20px', 'important');
+            launcher.style.setProperty('bottom', '20px', 'important');
+            launcher.style.setProperty('left', 'auto', 'important');
+            launcher.style.setProperty('z-index', '99999', 'important');
+            
+            console.log('Voiceflow launcher repositioned to right side');
+          } else {
+            // Keep trying if launcher not found yet
+            setTimeout(repositionLauncher, 300);
+          }
+        };
+        
+        // Start repositioning attempts
+        repositionLauncher();
+        
+        // Also use MutationObserver to catch dynamic changes
+        const observer = new MutationObserver(() => {
+          repositionLauncher();
+        });
+        
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['style', 'class']
+        });
+        
+        // Stop observing after 10 seconds to avoid performance issues
+        setTimeout(() => observer.disconnect(), 10000);
+      };
+      
       v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
       v.type = "text/javascript";
       s.parentNode.insertBefore(v, s);
     })(document, 'script');
   </script>
 </body>
-
 </html>

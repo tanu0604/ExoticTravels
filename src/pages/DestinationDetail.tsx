@@ -1,27 +1,17 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { destinations } from '../data/destinations';
-import { 
-  ArrowLeft, Clock, DollarSign, Calendar, Check, ChevronLeft, ChevronRight, 
-  Star, Users, MapPin, Camera, Heart, Share2, Download, Phone, MessageCircle 
+import {
+  ArrowLeft, Clock, DollarSign, Calendar, Check, ChevronLeft, ChevronRight,
+  Star, Users, MapPin, Camera, Heart, Share2, Download, Phone, MessageCircle
 } from 'lucide-react';
 
 const DestinationDetail: React.FC = () => {
-  const { category, id } = useParams<{ category: string; id: string }>();
-  
-  // Debug logging to see what we're getting
-  console.log('Route params:', { category, id });
-  console.log('Available destinations:', destinations.map(d => ({ id: d.id, category: d.category })));
-  
-  const destination = destinations.find(dest => {
-    const matchesId = dest.id === id;
-    const matchesCategory = dest.category === category;
-    console.log(`Checking ${dest.id} (${dest.category}): id match=${matchesId}, category match=${matchesCategory}`);
-    return matchesId && matchesCategory;
-  });
-  
-  console.log('Found destination:', destination);
-  
+  const { id } = useParams<{ id: string }>();
+  const pathname = window.location.pathname;
+  const category = pathname.includes('/indian/') ? 'indian' : 'foreign';
+
+  const destination = destinations.find(dest => dest.id === id && dest.category === category);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -34,10 +24,7 @@ const DestinationDetail: React.FC = () => {
           </div>
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Destination Not Found</h1>
           <p className="text-gray-600 mb-6">The destination you're looking for doesn't exist.</p>
-          <Link 
-            to="/" 
-            className="btn-primary inline-flex items-center space-x-2"
-          >
+          <Link to="/" className="btn-primary inline-flex items-center space-x-2">
             <ArrowLeft className="h-4 w-4" />
             <span>Return to Home</span>
           </Link>
@@ -49,341 +36,159 @@ const DestinationDetail: React.FC = () => {
   const allImages = [destination.image, ...destination.gallery];
 
   return (
-    <div className="min-h-screen pt-20 bg-gray-50">
-      {/* Breadcrumb */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center space-x-2 text-sm text-gray-600">
-            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <ChevronRight className="h-4 w-4" />
-            <Link 
-              to={`/${category}-trips`} 
-              className="hover:text-blue-600 transition-colors capitalize"
-            >
-              {category} Trips
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="text-gray-800 font-medium">{destination.name}</span>
-          </div>
+    <div className="min-h-screen pt-20 bg-gradient-to-b from-gray-50 to-white">
+      {/* Hero Section */}
+      <div className="relative h-[500px] overflow-hidden rounded-b-3xl shadow-xl">
+        <img
+          src={allImages[selectedImageIndex]}
+          alt={destination.name}
+          className="w-full h-full object-cover transition-all duration-500"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+          <h1 className="text-5xl font-extrabold drop-shadow-lg mb-3">{destination.name}</h1>
+          <p className="text-lg opacity-90 max-w-2xl drop-shadow-md">{destination.description}</p>
         </div>
+        {allImages.length > 1 && (
+          <>
+            <button
+              onClick={() => setSelectedImageIndex(prev => prev === 0 ? allImages.length - 1 : prev - 1)}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 p-2 rounded-full shadow"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => setSelectedImageIndex(prev => prev === allImages.length - 1 ? 0 : prev + 1)}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 p-2 rounded-full shadow"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </>
+        )}
       </div>
 
-      {/* Hero Section with Image Gallery */}
-      <section className="relative">
-        <div className="h-96 md:h-[500px] relative overflow-hidden">
-          <img 
-            src={allImages[selectedImageIndex]} 
-            alt={destination.name}
-            className="w-full h-full object-cover transition-all duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          
-          {/* Hero Content */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white animate-fade-in">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-shadow">
-                {destination.name}
-              </h1>
-              <p className="text-xl md:text-2xl opacity-90 text-shadow">
-                {destination.description}
-              </p>
-              
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-                <button className="glass-effect text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 flex items-center space-x-2">
-                  <Heart className="h-5 w-5" />
-                  <span>Save</span>
-                </button>
-                <button className="glass-effect text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 flex items-center space-x-2">
-                  <Share2 className="h-5 w-5" />
-                  <span>Share</span>
-                </button>
-                <button className="glass-effect text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 flex items-center space-x-2">
-                  <Download className="h-5 w-5" />
-                  <span>Brochure</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Image Navigation */}
-          {allImages.length > 1 && (
-            <>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:flex lg:space-x-8">
+        <div className="lg:w-2/3 space-y-10">
+          {/* Tab Navigation */}
+          <div className="flex space-x-2 rounded-xl bg-gray-100 p-2 shadow-sm sticky top-20 z-10 bg-opacity-90 backdrop-blur">
+            {[{ id: 'overview', label: 'Overview', icon: MapPin }, { id: 'highlights', label: 'Highlights', icon: Star }, { id: 'gallery', label: 'Gallery', icon: Camera }, { id: 'faq', label: 'FAQ', icon: MessageCircle }].map(({ id, label, icon: Icon }) => (
               <button
-                onClick={() => setSelectedImageIndex(prev => prev === 0 ? allImages.length - 1 : prev - 1)}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 glass-effect text-white p-3 rounded-full hover:bg-white/20 transition-all duration-300"
+                key={id}
+                onClick={() => setActiveTab(id)}
+                className={`flex-1 px-4 py-2 rounded-lg flex items-center justify-center space-x-2 font-medium transition ${activeTab === id ? 'bg-white shadow text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
               >
-                <ChevronLeft className="h-6 w-6" />
+                <Icon className="h-4 w-4" />
+                <span className="hidden sm:inline">{label}</span>
               </button>
-              <button
-                onClick={() => setSelectedImageIndex(prev => prev === allImages.length - 1 ? 0 : prev + 1)}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 glass-effect text-white p-3 rounded-full hover:bg-white/20 transition-all duration-300"
-              >
-                <ChevronRight className="h-6 w-6" />
-              </button>
-            </>
-          )}
-
-          {/* Image Indicators */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {allImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setSelectedImageIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === selectedImageIndex 
-                    ? 'bg-white scale-125' 
-                    : 'bg-white/50 hover:bg-white/75'
-                }`}
-              />
             ))}
           </div>
+
+          <div className="bg-white rounded-2xl shadow p-6">
+            {activeTab === 'overview' && (
+              <>
+                <h2 className="text-2xl font-bold mb-4">Overview</h2>
+                <p className="text-gray-700 leading-relaxed text-lg">{destination.overview}</p>
+              </>
+            )}
+            {activeTab === 'highlights' && (
+              <>
+                <h2 className="text-2xl font-bold mb-6">Highlights</h2>
+                <ul className="grid md:grid-cols-2 gap-4">
+                  {destination.highlights.map((item, i) => (
+                    <li key={i} className="flex items-center space-x-3">
+                      <Check className="text-green-600 w-5 h-5" />
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {activeTab === 'gallery' && (
+              <>
+                <h2 className="text-2xl font-bold mb-6">Gallery</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {destination.gallery.map((img, i) => (
+                    <div key={i} className="overflow-hidden rounded-xl shadow group relative">
+                      <img src={img} alt="gallery" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition"></div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+            {activeTab === 'faq' && (
+              <>
+                <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+                <div className="space-y-4">
+                  {destination.faqs.map((faq, i) => (
+                    <div key={i} className="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-xl">
+                      <h3 className="font-semibold text-lg text-blue-900 mb-1">{faq.question}</h3>
+                      <p className="text-gray-700">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
 
-        {/* Thumbnail Gallery */}
-        <div className="bg-white p-4 shadow-sm">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex space-x-4 overflow-x-auto pb-2">
-              {allImages.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImageIndex(index)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden transition-all duration-300 ${
-                    index === selectedImageIndex 
-                      ? 'ring-4 ring-blue-500 scale-105' 
-                      : 'hover:scale-105 opacity-70 hover:opacity-100'
-                  }`}
-                >
-                  <img 
-                    src={image} 
-                    alt={`${destination.name} ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
+        {/* Sidebar - scrollable */}
+        <div className="lg:w-1/3 max-h-[calc(100vh-7rem)] overflow-y-auto sticky top-28 self-start space-y-8">
+          <div className="bg-white p-6 rounded-2xl shadow-xl space-y-4">
+            <h3 className="text-xl font-semibold text-gray-800">Quick Info</h3>
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span className="text-gray-600 flex items-center space-x-2"><Clock className="w-4 h-4" /><span>Duration</span></span>
+                <span className="font-bold text-blue-600">{destination.duration}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600 flex items-center space-x-2"><DollarSign className="w-4 h-4" /><span>Price</span></span>
+                <span className="font-bold text-green-600">{destination.price}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600 flex items-center space-x-2"><Calendar className="w-4 h-4" /><span>Best Time</span></span>
+                <span className="font-bold text-orange-500">{destination.bestTime}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600 flex items-center space-x-2"><Users className="w-4 h-4" /><span>Group Size</span></span>
+                <span className="font-bold text-purple-600">2-8 People</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Travel Packages */}
+          {destination.packages && destination.packages.length > 0 && (
+            <div className="bg-white p-6 rounded-2xl shadow-xl space-y-6">
+              <h3 className="text-xl font-semibold text-gray-800">Travel Packages</h3>
+              {destination.packages.map((pkg, index) => (
+                <div key={index} className="border p-4 rounded-xl hover:shadow transition-all space-y-2">
+                  <div className="flex justify-between items-start">
+                    <h4 className="text-lg font-bold text-gray-800">{pkg.name}</h4>
+                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium">{pkg.price}</span>
+                  </div>
+                  <p className="text-sm text-gray-600 flex items-center space-x-2"><Clock className="w-4 h-4" /><span>{pkg.duration}</span></p>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-700">Inclusions:</p>
+                    <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
+                      {pkg.inclusions.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition">Book Now</button>
+                </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
+          )}
 
-      {/* Back Button */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <Link
-          to={`/${category}-trips`}
-          className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors font-medium group"
-        >
-          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          <span>Back to {category === 'indian' ? 'Indian' : 'Foreign'} Trips</span>
-        </Link>
-      </div>
-
-      {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Tab Navigation */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 animate-slide-in-left">
-              <div className="flex space-x-1 bg-gray-100 p-1 rounded-xl mb-6">
-                {[
-                  { id: 'overview', label: 'Overview', icon: MapPin },
-                  { id: 'highlights', label: 'Highlights', icon: Star },
-                  { id: 'gallery', label: 'Gallery', icon: Camera },
-                  { id: 'faq', label: 'FAQ', icon: MessageCircle }
-                ].map(({ id, label, icon: Icon }) => (
-                  <button
-                    key={id}
-                    onClick={() => setActiveTab(id)}
-                    className={`flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
-                      activeTab === id
-                        ? 'bg-white text-blue-600 shadow-md'
-                        : 'text-gray-600 hover:text-blue-600'
-                    }`}
-                  >
-                    <Icon className="h-4 w-4" />
-                    <span className="hidden sm:inline">{label}</span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Tab Content */}
-              <div className="animate-fade-in">
-                {activeTab === 'overview' && (
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Overview</h2>
-                    <p className="text-gray-600 leading-relaxed text-lg">{destination.overview}</p>
-                  </div>
-                )}
-
-                {activeTab === 'highlights' && (
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Highlights</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {destination.highlights.map((highlight, index) => (
-                        <div key={index} className="flex items-center space-x-3 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
-                          <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                            <Check className="h-4 w-4 text-white" />
-                          </div>
-                          <span className="text-gray-700 font-medium">{highlight}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'gallery' && (
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Photo Gallery</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                      {destination.gallery.map((image, index) => (
-                        <div key={index} className="group relative overflow-hidden rounded-xl aspect-square">
-                          <img 
-                            src={image} 
-                            alt={`${destination.name} ${index + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <Camera className="h-8 w-8 text-white" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'faq' && (
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
-                    <div className="space-y-4">
-                      {destination.faqs.map((faq, index) => (
-                        <div key={index} className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
-                          <h3 className="font-bold text-gray-800 mb-3 text-lg">{faq.question}</h3>
-                          <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1 space-y-6 animate-slide-in-right">
-            {/* Quick Info */}
-            <div className="glass-card rounded-2xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center space-x-2">
-                <Clock className="h-5 w-5 text-blue-600" />
-                <span>Quick Info</span>
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
-                  <div className="flex items-center space-x-3">
-                    <Clock className="h-5 w-5 text-gray-500" />
-                    <span className="text-gray-700 font-medium">Duration</span>
-                  </div>
-                  <span className="font-bold text-blue-600">{destination.duration}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl">
-                  <div className="flex items-center space-x-3">
-                    <DollarSign className="h-5 w-5 text-gray-500" />
-                    <span className="text-gray-700 font-medium">Starting from</span>
-                  </div>
-                  <span className="font-bold text-green-600 text-lg">{destination.price}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl">
-                  <div className="flex items-center space-x-3">
-                    <Calendar className="h-5 w-5 text-gray-500" />
-                    <span className="text-gray-700 font-medium">Best Time</span>
-                  </div>
-                  <span className="font-bold text-amber-600">{destination.bestTime}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl">
-                  <div className="flex items-center space-x-3">
-                    <Users className="h-5 w-5 text-gray-500" />
-                    <span className="text-gray-700 font-medium">Group Size</span>
-                  </div>
-                  <span className="font-bold text-purple-600">2-8 People</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Travel Packages */}
-            <div className="glass-card rounded-2xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center space-x-2">
-                <MapPin className="h-5 w-5 text-blue-600" />
-                <span>Travel Packages</span>
-              </h3>
-              <div className="space-y-6">
-                {destination.packages.map((pkg, index) => (
-                  <div key={index} className="border-2 border-gray-100 hover:border-blue-200 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg group">
-                    <div className="flex items-start justify-between mb-4">
-                      <h4 className="font-bold text-gray-800 text-lg group-hover:text-blue-600 transition-colors">
-                        {pkg.name}
-                      </h4>
-                      <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                        {pkg.price}
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center space-x-2 mb-4 text-gray-600">
-                      <Clock className="h-4 w-4" />
-                      <span className="font-medium">{pkg.duration}</span>
-                    </div>
-                    
-                    <div className="mb-6">
-                      <p className="text-sm font-semibold text-gray-700 mb-3">What's Included:</p>
-                      <div className="space-y-2">
-                        {pkg.inclusions.map((inclusion, i) => (
-                          <div key={i} className="flex items-center space-x-2">
-                            <div className="w-4 h-4 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
-                              <Check className="h-2.5 w-2.5 text-white" />
-                            </div>
-                            <span className="text-sm text-gray-600">{inclusion}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                      Book This Package
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact CTA */}
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
-              <h3 className="text-xl font-bold mb-4">Need Help Planning?</h3>
-              <p className="mb-6 opacity-90">
-                Our travel experts are here to help you create the perfect itinerary for your dream vacation.
-              </p>
-              <div className="space-y-3">
-                <Link
-                  to="/contact"
-                  className="block w-full bg-white text-blue-600 text-center py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-                >
-                  Get Free Quote
-                </Link>
-                <a
-                  href="tel:+919876543210"
-                  className="block w-full bg-green-500 text-white text-center py-3 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span>Call Now</span>
-                </a>
-                <a
-                  href="https://wa.me/919876543210"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full bg-green-600 text-white text-center py-3 rounded-xl font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  <span>WhatsApp</span>
-                </a>
-              </div>
-            </div>
+          {/* Contact */}
+          <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white p-6 rounded-2xl space-y-4 shadow-xl">
+            <h3 className="text-xl font-bold">Need Help?</h3>
+            <p className="opacity-90">Our experts are here to craft your ideal travel plan.</p>
+            <Link to="/contact" className="block bg-white text-blue-600 py-2 rounded-lg text-center font-semibold hover:bg-gray-100">Get Free Quote</Link>
+            <a href="tel:+919876543210" className="block bg-green-500 hover:bg-green-600 py-2 rounded-lg text-center font-semibold">Call Now</a>
+            <a href="https://wa.me/919876543210" className="block bg-green-600 hover:bg-green-700 py-2 rounded-lg text-center font-semibold">WhatsApp</a>
           </div>
         </div>
       </div>

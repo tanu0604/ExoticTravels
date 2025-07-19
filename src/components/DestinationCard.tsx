@@ -22,32 +22,25 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
   category
 }) => {
   return (
-    <div className="group relative bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-      {/* Image Container */}
+    <div className="group relative bg-white rounded-3xl shadow-lg overflow-hidden card-hover animate-scale-in border border-gray-100">
       <div className="relative overflow-hidden h-64">
         <img 
           src={image} 
           alt={name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
-        
-        {/* Category Badge */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"></div>
         <div className="absolute top-4 left-4 z-10">
           <div className="bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-sm font-semibold shadow-md">
             {category === 'indian' ? '🇮🇳 India' : '✈️ International'}
           </div>
         </div>
 
-        {/* Rating Badge */}
-        <div className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1 shadow-md">
-          <Star className="h-4 w-4 text-yellow-500 fill-current" />
+        <div className="absolute top-4 right-4 z-10 bg-white/95 backdrop-blur-sm rounded-full px-3 py-2 flex items-center space-x-1 shadow-lg border border-white/20">
+          <Star className="h-4 w-4 text-amber-500 fill-current" />
           <span className="text-sm font-bold text-gray-800">4.8</span>
         </div>
 
-        {/* Hover Content */}
         <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
           <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
             <div className="flex items-center justify-between text-gray-700">
@@ -64,7 +57,6 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
         </div>
       </div>
       
-      {/* Content */}
       <div className="p-6">
         <div className="mb-4">
           <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300">
@@ -72,9 +64,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
           </h3>
           <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">{description}</p>
         </div>
-        
-        {/* Price and Duration */}
-        <div className="flex items-center justify-between mb-6 p-3 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors duration-300">
+        <div className="flex items-center justify-between mb-6 p-3 bg-gray-50 rounded-xl">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
               <Clock className="h-4 w-4 text-blue-600" />
@@ -94,16 +84,19 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
             </div>
           </div>
         </div>
-        
-        {/* Action Button */}
+
+        {/* Fixed route without "-trips" */}
         <Link
-          to={`/${category}-trips/${id}`}
-          className="group/btn w-full bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center space-x-2"
+          to={`/${category}/${id}`}
+          className="group/btn w-full bg-gray-900 hover:bg-gray-800 text-white px-6 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center space-x-3"
         >
           <span>Explore Details</span>
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
         </Link>
       </div>
+
+      <div className="absolute -top-1 -right-1 w-16 h-16 bg-gradient-to-br from-blue-50 to-purple-50 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="absolute -bottom-1 -left-1 w-12 h-12 bg-gradient-to-tr from-amber-50 to-orange-50 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"></div>
     </div>
   );
 };

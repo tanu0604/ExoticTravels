@@ -1,3 +1,17 @@
+import goa from "./assests/goa.jpg";
+import kerela from "./assests/kerela.jpeg";
+import manali from "./assests/manali.jpeg";
+import jaipur from "./assests/jaipur.jpeg";
+import ladakh from "./assests/ladak.jpeg";
+import andaman from "./assests/andaman.jpeg";
+
+import bali from "./assests/bali.jpeg"
+import thailand from "./assests/thailand.jpeg"
+import singapore from "./assests/singapore.jpeg"
+import maldives from "./assests/maldives.jpeg"
+import dubai from "./assests/dubai.jpeg"
+import paris from "./assests/paris.jpeg"
+
 export interface Destination {
   id: string;
   name: string;
@@ -49,7 +63,7 @@ export const destinations: Destination[] = [
   {
     id: 'goa',
     name: 'Goa',
-    image: 'https://images.pexels.com/photos/962464/pexels-photo-962464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: goa,
     price: '₹15,999',
     duration: '4 Days 3 Nights',
     description: 'Sun, sand, and endless fun in India\'s beach paradise',
@@ -124,7 +138,7 @@ export const destinations: Destination[] = [
   {
     id: 'kerala',
     name: 'Kerala',
-    image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: kerela,
     price: '₹18,999',
     duration: '5 Days 4 Nights',
     description: 'God\'s Own Country with backwaters, hills, and spices',
@@ -200,7 +214,7 @@ export const destinations: Destination[] = [
   {
     id: 'manali',
     name: 'Manali',
-    image: 'https://images.pexels.com/photos/1598073/pexels-photo-1598073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image:manali,
     price: '₹12,999',
     duration: '4 Days 3 Nights',
     description: 'Adventure and serenity in the Himalayan foothills',
@@ -276,7 +290,7 @@ export const destinations: Destination[] = [
   {
     id: 'jaipur',
     name: 'Jaipur',
-    image: 'https://images.pexels.com/photos/1183099/pexels-photo-1183099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image:jaipur,
     price: '₹11,999',
     duration: '3 Days 2 Nights',
     description: 'The Pink City with royal palaces and rich heritage',
@@ -352,7 +366,7 @@ export const destinations: Destination[] = [
   {
     id: 'andaman',
     name: 'Andaman Islands',
-    image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: andaman,
     price: '₹25,999',
     duration: '5 Days 4 Nights',
     description: 'Pristine beaches and crystal-clear waters',
@@ -429,7 +443,7 @@ export const destinations: Destination[] = [
   {
     id: 'ladakh',
     name: 'Ladakh',
-    image: 'https://images.pexels.com/photos/2474690/pexels-photo-2474690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: ladakh,
     price: '₹22,999',
     duration: '6 Days 5 Nights',
     description: 'Land of high passes and Buddhist monasteries',
@@ -508,7 +522,7 @@ export const destinations: Destination[] = [
   {
     id: 'bali',
     name: 'Bali, Indonesia',
-    image: 'https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image:bali,
     price: '₹45,999',
     duration: '5 Days 4 Nights',
     description: 'Tropical paradise with temples, beaches, and culture',
@@ -584,7 +598,7 @@ export const destinations: Destination[] = [
   {
     id: 'maldives',
     name: 'Maldives',
-    image: 'https://images.pexels.com/photos/962464/pexels-photo-962464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: maldives,
     price: '₹85,999',
     duration: '4 Days 3 Nights',
     description: 'Luxury overwater villas and pristine coral reefs',
@@ -660,7 +674,7 @@ export const destinations: Destination[] = [
   {
     id: 'dubai',
     name: 'Dubai, UAE',
-    image: 'https://images.pexels.com/photos/1598073/pexels-photo-1598073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image:dubai,
     price: '₹35,999',
     duration: '4 Days 3 Nights',
     description: 'Modern marvels, luxury shopping, and desert adventures',
@@ -736,7 +750,7 @@ export const destinations: Destination[] = [
   {
     id: 'paris',
     name: 'Paris, France',
-    image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image:paris,
     price: '₹75,999',
     duration: '5 Days 4 Nights',
     description: 'City of Love with iconic landmarks and culture',
@@ -812,7 +826,7 @@ export const destinations: Destination[] = [
   {
     id: 'singapore',
     name: 'Singapore',
-    image: 'https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: singapore,
     price: '₹42,999',
     duration: '4 Days 3 Nights',
     description: 'Garden city with modern attractions and diverse culture',
@@ -888,7 +902,7 @@ export const destinations: Destination[] = [
   {
     id: 'thailand',
     name: 'Thailand',
-    image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: thailand,
     price: '₹32,999',
     duration: '5 Days 4 Nights',
     description: 'Land of smiles with beaches, temples, and cuisine',

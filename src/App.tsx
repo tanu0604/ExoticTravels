@@ -21,8 +21,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/indian-trips" element={<IndianTrips />} />
           <Route path="/foreign-trips" element={<ForeignTrips />} />
-          <Route path="/indian-trips/:id" element={<DestinationDetail />} />
-          <Route path="/foreign-trips/:id" element={<DestinationDetail />} />
+
+          {/* ✅ Updated to match the new Link in DestinationCard */}
+         <Route path="/indian/:id" element={<DestinationDetail />} />
+<Route path="/foreign/:id" element={<DestinationDetail />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />

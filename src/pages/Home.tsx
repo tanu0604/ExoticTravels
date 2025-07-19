@@ -5,6 +5,32 @@ import { destinations, testimonials } from '../data/destinations';
 import DestinationCard from '../components/DestinationCard';
 import TestimonialCard from '../components/TestimonialCard';
 import StickyScroll from '../components/StickyScroll';
+import { motion } from 'framer-motion';
+import { useMotionValue, useTransform, animate } from 'framer-motion';
+import CountUp from 'react-countup';
+
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+interface CountUpProps {
+  target: number;
+  suffix?: string;
+  duration?: number;
+}
+
+
 
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -131,140 +157,117 @@ const Home: React.FC = () => {
     } finally {
       setIsSubmitting(false);
     }
+    
   };
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Images Carousel */}
-        <div className="absolute inset-0">
-          {heroImages.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-all duration-2000 ${
-                index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-              }`}
-            >
-              <img 
-                src={image} 
-                alt={`Hero ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
+     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  {/* Background Images Carousel */}
+  <div className="absolute inset-0">
+    {heroImages.map((image, index) => (
+      <div
+        key={index}
+        className={`absolute inset-0 transition-all duration-2000 ${
+          index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+        }`}
+      >
+        <img 
+          src={image} 
+          alt={`Hero ${index + 1}`}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    ))}
+  </div>
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
+
+  <div className="relative z-20 text-center text-white max-w-7xl mx-auto px-4">
+    {/* Trust Badge */}
+    <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium mb-8">
+      <CheckCircle className="h-4 w-4 text-emerald-400" />
+      <span>Trusted by 10,000+ Travelers</span>
+    </div>
+
+    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
+      <span className="block text-white text-shadow">Your Next</span>
+      <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-emerald-400 to-orange-400 text-shadow">
+        Adventure
+      </span>
+      <span className="block text-white text-shadow">Starts Here</span>
+    </h1>
+    
+    <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-4xl mx-auto leading-relaxed font-light text-shadow">
+      Discover breathtaking destinations, create unforgettable memories, and experience the world like never before with our expertly curated travel packages
+    </p>
+
+    {/* CTA Buttons */}
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+      <Link
+        to="/indian-trips"
+        className="group relative bg-white text-gray-900 px-12 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all duration-500 transform hover:scale-105 shadow-2xl flex items-center space-x-3 overflow-hidden"
+      >
+        <span>Explore Destinations</span>
+        <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2" />
+      </Link>
+      
+      <button className="group flex items-center space-x-3 text-white hover:text-blue-300 transition-all duration-500">
+        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-500">
+          <Play className="h-6 w-6 ml-1" />
+        </div>
+        <span className="text-lg font-medium">Watch Our Story</span>
+      </button>
+    </div>
+
+    {/* Stats */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+      {[
+        { number: 15, suffix: '+', label: 'Years Experience', icon: Award },
+        { number: 10000, suffix: '+', label: 'Happy Travelers', icon: Users },
+        { number: 200, suffix: '+', label: 'Destinations', icon: Globe },
+        { fixedText: '24/7', label: 'Support', icon: Clock }
+      ].map((stat, index) => {
+        const Icon = stat.icon;
+        return (
+          <div
+            key={index}
+            className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-500 hover:scale-105"
+          >
+            <Icon className="h-8 w-8 text-blue-400 mx-auto mb-3" />
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              {'number' in stat ? (
+<CountUp end={stat.number as number} suffix={stat.suffix} duration={2} />
+              ) : (
+                stat.fixedText
+              )}
             </div>
-          ))}
-        </div>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
-        
-        <div className="relative z-20 text-center text-white max-w-7xl mx-auto px-4">
-          {/* Trust Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium mb-8">
-            <CheckCircle className="h-4 w-4 text-emerald-400" />
-            <span>Trusted by 10,000+ Travelers</span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
-            <span className="block text-white text-shadow">Your Next</span>
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-emerald-400 to-orange-400 text-shadow">
-              Adventure
-            </span>
-            <span className="block text-white text-shadow">Starts Here</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-4xl mx-auto leading-relaxed font-light text-shadow">
-            Discover breathtaking destinations, create unforgettable memories, and experience the world like never before with our expertly curated travel packages
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-            <Link
-              to="/indian-trips"
-              className="group relative bg-white text-gray-900 px-12 py-5 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all duration-500 transform hover:scale-105 shadow-2xl flex items-center space-x-3 overflow-hidden"
-            >
-              <span>Explore Destinations</span>
-              <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-2" />
-            </Link>
-            
-            <button className="group flex items-center space-x-3 text-white hover:text-blue-300 transition-all duration-500">
-              <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-500">
-                <Play className="h-6 w-6 ml-1" />
-              </div>
-              <span className="text-lg font-medium">Watch Our Story</span>
-            </button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {[
-              { number: '15+', label: 'Years Experience', icon: Award },
-              { number: '10K+', label: 'Happy Travelers', icon: Users },
-              { number: '200+', label: 'Destinations', icon: Globe },
-              { number: '24/7', label: 'Support', icon: Clock }
-            ].map((stat, index) => (
-              <div key={index} className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-500 hover:scale-105">
-                <stat.icon className="h-8 w-8 text-blue-400 mx-auto mb-3" />
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-sm md:text-base text-white/80 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`h-1 rounded-full transition-all duration-500 ${
-                index === currentSlide 
-                  ? 'bg-white w-8' 
-                  : 'bg-white/50 hover:bg-white/75 w-4'
-              }`}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Trust Indicators */}
-      <section className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-gray-500 font-medium mb-8">Trusted by travelers worldwide</p>
-            <div className="flex flex-wrap items-center justify-center gap-12 opacity-60">
-              {['TripAdvisor', 'Google Reviews', 'Facebook', 'Instagram', 'YouTube'].map((platform, index) => (
-                <div key={index} className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300">
-                  <Star className="h-5 w-5 text-yellow-500 fill-current" />
-                  <span className="text-gray-600 font-semibold hover:text-gray-800 transition-colors duration-300">{platform}</span>
-                </div>
-              ))}
+            <div className="text-sm md:text-base text-white/80 font-medium">
+              {stat.label}
             </div>
           </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+  </div>
 
-      {/* Sticky Scroll Experience Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-width">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              <TrendingUp className="h-4 w-4" />
-              <span>Why We're Different</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Experience the <span className="text-blue-600">Exotic Difference</span>
-            </h2>
-            <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
-              We don't just plan trips—we craft experiences that transform the way you see the world
-            </p>
-          </div>
-
-          <StickyScroll items={stickyScrollItems} />
-        </div>
-      </section>
-
+  {/* Slide Indicators */}
+  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+    {heroImages.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentSlide(index)}
+        className={`h-1 rounded-full transition-all duration-500 ${
+          index === currentSlide 
+            ? 'bg-white w-8' 
+            : 'bg-white/50 hover:bg-white/75 w-4'
+        }`}
+      />
+    ))}
+  </div>
+</section>
       {/* Featured Indian Destinations */}
       <section className="section-padding bg-white">
         <div className="container-width">
