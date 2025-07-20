@@ -8,7 +8,9 @@ import StickyScroll from '../components/StickyScroll';
 import { motion } from 'framer-motion';
 import { useMotionValue, useTransform, animate } from 'framer-motion';
 import CountUp from 'react-countup';
-
+import home1 from "../data/assests/home1.jpeg"
+import home2 from "../data/assests/home2.jpeg"
+import home3 from "../data/assests/home3.jpeg"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -50,11 +52,7 @@ const Home: React.FC = () => {
   const indianDestinations = destinations.filter(dest => dest.category === 'indian').slice(0, 6);
   const foreignDestinations = destinations.filter(dest => dest.category === 'foreign').slice(0, 6);
 
-  const heroImages = [
-    'https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/2474690/pexels-photo-2474690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  ];
+  const heroImages = [home1,home2,home3];
 
   // Sticky Scroll Data
   const stickyScrollItems = [
