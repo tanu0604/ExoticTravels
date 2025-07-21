@@ -21,29 +21,25 @@
 <body>
   <div id="root"></div>
 
-  <!-- 🔥 Add this div to render chatbot -->
+  <!-- 🔥 Chatbot container (optional if using overlay mode) -->
   <div id="vf-chat"></div>
 
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- Voiceflow Chatbot Script -->
+  <!-- ✅ Updated Voiceflow Chatbot Script -->
   <script type="text/javascript">
     (function (d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function () {
         window.voiceflow.chat.load({
-          verify: { projectID: '6870a966ef0de914c799e6b4' },
+          verify: { projectID: '687bd8f70dde4cc3e9cb8370' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
           voice: {
             url: "https://runtime-api.voiceflow.com"
-          },
-          render: {
-            mode: 'overlay',  // popup style
-            align: 'right'   
           }
         });
-      }
+      };
       v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
       v.type = "text/javascript";
       s.parentNode.insertBefore(v, s);
