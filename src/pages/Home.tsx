@@ -54,6 +54,27 @@ const Home: React.FC = () => {
 
   const heroImages = [home1,home2,home3];
 
+const adventureWords = ["Adventure", "Journey", "Expedition"];
+const gradientClasses = [
+  "bg-gradient-to-r from-blue-400 via-emerald-400 to-orange-400",
+  "bg-gradient-to-r from-pink-500 via-red-400 to-yellow-400",
+  "bg-gradient-to-r from-indigo-400 via-sky-400 to-teal-400"
+];
+const [currentWordIndex, setCurrentWordIndex] = useState(0);
+const [isFading, setIsFading] = useState(false);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % adventureWords.length);
+      setIsFading(false);
+    }, 300); // duration of fade-out before changing text
+  }, 2000);
+
+  return () => clearInterval(interval);
+}, []);
+
   // Sticky Scroll Data
   const stickyScrollItems = [
     {
@@ -192,9 +213,16 @@ const Home: React.FC = () => {
 
     <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
       <span className="block text-white text-shadow">Your Next</span>
-      <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-emerald-400 to-orange-400 text-shadow">
-        Adventure
-      </span>
+  <span
+  className={`block bg-clip-text text-transparent text-shadow transition-all duration-500 ease-in-out transform ${
+    isFading ? 'opacity-0 scale-90' : 'opacity-100 scale-100'
+  } ${gradientClasses[currentWordIndex]}`}
+>
+  {adventureWords[currentWordIndex]}
+</span>
+
+
+
       <span className="block text-white text-shadow">Starts Here</span>
     </h1>
     

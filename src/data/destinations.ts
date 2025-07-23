@@ -1,17 +1,25 @@
-import goa from "./assests/goa.jpg";
+import goa from "./assests/goa.jpeg";
 import kerela from "./assests/kerela.jpeg";
 import manali from "./assests/manali.jpeg";
 import jaipur from "./assests/jaipur.jpeg";
 import ladakh from "./assests/ladak.jpeg";
 import andaman from "./assests/andaman.jpeg";
+import kashmir from "./assests/kashmir.jpeg"
+import dooars from "./assests/dooars.jpeg"
+import arunachal from "./assests/arunachal.jpeg"
+import bengal from "./assests/bengal.jpeg"
+import meghalaya from "./assests/meghalaya.jpeg"
+
 
 import bali from "./assests/bali.jpeg"
 import thailand from "./assests/thailand.jpeg"
 import singapore from "./assests/singapore.jpeg"
 import maldives from "./assests/maldives.jpeg"
 import dubai from "./assests/dubai.jpeg"
-import paris from "./assests/paris.jpeg"
-
+import nepal from "./assests/Nepal.jpeg"
+import srilanka from "./assests/srilanka.jpeg"
+import vietnam from "./assests/vietnam.jpeg"
+import malaysia from "./assests/malaysia.jpeg"
 export interface Destination {
   id: string;
   name: string;
@@ -64,8 +72,8 @@ export const destinations: Destination[] = [
     id: 'goa',
     name: 'Goa',
     image: goa,
-    price: '₹15,999',
-    duration: '4 Days 3 Nights',
+    price: '₹12,000',
+    duration: '5 Days 4 Nights',
     description: 'Sun, sand, and endless fun in India\'s beach paradise',
     category: 'indian',
     region: 'West',
@@ -135,6 +143,217 @@ export const destinations: Destination[] = [
       }
     ]
   },
+
+  {
+  id: 'meghalaya',
+  name: 'Meghalaya',
+  image: meghalaya,
+  price: '₹12,000',
+  duration: '5 Days 4 Nights',
+  description: 'Misty hills, living root bridges, and waterfalls await you',
+  category: 'indian',
+  region: 'Northeast',
+  type: 'Nature',
+  overview: 'Meghalaya, meaning "Abode of Clouds", is famous for its rainfall, natural caves, waterfalls, and the living root bridges of Cherrapunji and Mawlynnong. Shillong, the capital, adds a touch of urban charm.',
+  highlights: [
+    'Living root bridges at Nongriat',
+    'Mawsmai caves and waterfalls',
+    'Cleanest village Mawlynnong',
+    'Boating in Dawki river',
+    'Shillong sightseeing'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/1503315/pexels-photo-1503315.jpeg',
+    'https://images.pexels.com/photos/10969885/pexels-photo-10969885.jpeg',
+    'https://images.pexels.com/photos/1179226/pexels-photo-1179226.jpeg'
+  ],
+  bestTime: 'Oct - Apr',
+  packages: [
+    {
+      name: 'Meghalaya Nature Trail',
+      duration: '5 Days 4 Nights',
+      price: '₹16,499',
+      inclusions: [
+        'Hotel stay in Shillong & Cherrapunji',
+        'All transfers',
+        'Breakfast included',
+        'Cave exploration & local guide',
+        'Dawki boating and sightseeing'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'What is special about the living root bridges?',
+      answer: 'They are naturally grown bridges made from the roots of rubber trees, unique to Meghalaya.'
+    },
+    {
+      question: 'Is Meghalaya suitable for solo travel?',
+      answer: 'Yes, it\'s safe and well-connected. Locals are friendly and helpful.'
+    }
+  ]
+},
+{
+  id: 'offbeat-north-bengal',
+  name: 'Offbeat North Bengal',
+  image: bengal,
+  price: '₹10,999',
+  duration: '3 Days 2 Nights',
+  description: 'Tranquil villages, lush greenery, and tea estate getaways',
+  category: 'indian',
+  region: 'East',
+  type: 'Hill Station',
+  overview: 'Explore serene hill destinations away from the crowds. Places like Tinchuley, Lamahatta, Chatakpur, and Lepchajagat offer peace, mountain views, and local culture in the lap of nature.',
+  highlights: [
+    'Panoramic Kanchenjunga views',
+    'Village walks and eco stays',
+    'Bird watching and forest trails',
+    'Organic food and local hospitality',
+    'Nearby excursions to Darjeeling/Kalimpong'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/41949/pexels-photo-41949.jpeg',
+    'https://images.pexels.com/photos/301682/pexels-photo-301682.jpeg',
+    'https://images.pexels.com/photos/3214975/pexels-photo-3214975.jpeg'
+  ],
+  bestTime: 'Sep - Apr',
+  packages: [
+    {
+      name: 'Tinchuley & Lamahatta Escape',
+      duration: '3 Days 2 Nights',
+      price: '₹10,999',
+      inclusions: [
+        'Eco-resort/homestay stay',
+        'All meals',
+        'Local sightseeing',
+        'Transportation',
+        'Nature guide'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Are these destinations accessible by road?',
+      answer: 'Yes, all offbeat spots are accessible via road from Siliguri or Darjeeling.'
+    },
+    {
+      question: 'Are these good for family trips?',
+      answer: 'Yes, these peaceful villages are perfect for families and nature lovers.'
+    }
+  ]
+},
+
+{
+  id: 'dooars',
+  name: 'Dooars',
+  image: dooars,
+  price: '₹12,499',
+  duration: '4 Days 3 Nights',
+  description: 'Lush forests, wildlife, and tea gardens at the Himalayan foothills',
+  category: 'indian',
+  region: 'East',
+  type: 'Wildlife',
+  overview: 'Dooars is the gateway to Bhutan and North Bengal forests, offering rich biodiversity, tea estates, and riverine landscapes. Popular spots include Jaldapara, Gorumara, and Buxa Tiger Reserve.',
+  highlights: [
+    'Jungle safaris in Gorumara and Jaldapara',
+    'Elephant and Jeep rides',
+    'Scenic tea gardens',
+    'River camping and picnics',
+    'Bhutan border visit'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/719844/pexels-photo-719844.jpeg',
+    'https://images.pexels.com/photos/626196/pexels-photo-626196.jpeg',
+    'https://images.pexels.com/photos/6231652/pexels-photo-6231652.jpeg'
+  ],
+  bestTime: 'Oct - Mar',
+  packages: [
+    {
+      name: 'Dooars Jungle Tour',
+      duration: '4 Days 3 Nights',
+      price: '₹12,499',
+      inclusions: [
+        'Resort accommodation',
+        'Jungle safari permits',
+        'Local transport',
+        'Breakfast and dinner',
+        'Nature walk and campfire'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Which wildlife can be seen in Dooars?',
+      answer: 'You can spot Indian rhinos, elephants, bison, leopards, and various birds.'
+    },
+    {
+      question: 'How to reach Dooars?',
+      answer: 'The nearest railhead is New Mal Junction or NJP (Siliguri). From there, hire a car to Dooars.'
+    }
+  ]
+},
+{
+  id: 'arunachal',
+  name: 'Arunachal Pradesh',
+  image: arunachal,
+  price: '₹22,999',
+  duration: '6 Days 5 Nights',
+  description: 'Explore the hidden gems of India\'s northeastern frontier',
+  category: 'indian',
+  region: 'Northeast',
+  type: 'Adventure',
+  overview: 'Arunachal Pradesh is a land of breathtaking landscapes, misty mountains, ancient monasteries, and tribal cultures. It offers a perfect escape into nature and serenity, with destinations like Tawang, Ziro, and Bomdila.',
+  highlights: [
+    'Visit the iconic Tawang Monastery',
+    'Explore the picturesque Ziro Valley',
+    'Experience tribal culture and festivals',
+    'Scenic mountain passes and waterfalls',
+    'Adventure treks and local markets'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/3600541/pexels-photo-3600541.jpeg',
+    'https://images.pexels.com/photos/1459394/pexels-photo-1459394.jpeg',
+    'https://images.pexels.com/photos/1663979/pexels-photo-1663979.jpeg'
+  ],
+  bestTime: 'Oct - Apr',
+  packages: [
+    {
+      name: 'Tawang Scenic Retreat',
+      duration: '6 Days 5 Nights',
+      price: '₹22,999',
+      inclusions: [
+        'Hotel accommodation',
+        'Breakfast and dinner',
+        'Local transfers',
+        'Sightseeing tours',
+        'Permit arrangements'
+      ]
+    },
+    {
+      name: 'Ziro Cultural Trail',
+      duration: '5 Days 4 Nights',
+      price: '₹19,499',
+      inclusions: [
+        'Homestay experience',
+        'All meals',
+        'Local guide',
+        'Village walks',
+        'Cultural evening'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Is a permit required to visit Arunachal Pradesh?',
+      answer: 'Yes, an Inner Line Permit (ILP) is required for Indian citizens and a Protected Area Permit (PAP) for foreigners.'
+    },
+    {
+      question: 'How do I reach Arunachal Pradesh?',
+      answer: 'You can fly to Tezpur or Guwahati and drive to destinations in Arunachal from there.'
+    }
+  ]
+},
+
   {
     id: 'kerala',
     name: 'Kerala',
@@ -212,8 +431,69 @@ export const destinations: Destination[] = [
     ]
   },
   {
+  id: 'kashmir',
+  name: 'Kashmir',
+  image: kashmir,
+  price: '₹18,999',
+  duration: '5 Days 4 Nights',
+  description: 'The heaven on earth with snow-capped peaks and lush valleys',
+  category: 'indian',
+  region: 'North',
+  type: 'Nature',
+  overview: 'Kashmir is known for its stunning valleys, alpine lakes, Mughal gardens, and warm hospitality. Explore Srinagar, Gulmarg, Pahalgam, and Sonmarg for a mesmerizing Himalayan experience.',
+  highlights: [
+    'Shikara rides on Dal Lake',
+    'Stay in traditional houseboats',
+    'Visit Gulmarg and Pahalgam',
+    'Mughal gardens and local handicrafts',
+    'Snow activities and scenic landscapes'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/11035545/pexels-photo-11035545.jpeg',
+    'https://images.pexels.com/photos/14144638/pexels-photo-14144638.jpeg',
+    'https://images.pexels.com/photos/1547816/pexels-photo-1547816.jpeg'
+  ],
+  bestTime: 'Mar - Oct',
+  packages: [
+    {
+      name: 'Kashmir Valley Escape',
+      duration: '5 Days 4 Nights',
+      price: '₹18,999',
+      inclusions: [
+        'Hotel & houseboat stay',
+        'Breakfast & dinner',
+        'Private vehicle',
+        'Gondola ride (Gulmarg)',
+        'Sightseeing tours'
+      ]
+    },
+    {
+      name: 'Winter Kashmir Magic',
+      duration: '6 Days 5 Nights',
+      price: '₹21,999',
+      inclusions: [
+        'Winter hotel stays',
+        'Heater arrangements',
+        'Snow activities',
+        'Local guide',
+        'All transfers'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Is Kashmir safe for tourists?',
+      answer: 'Yes, most tourist areas are safe. Always follow local advice and avoid restricted zones.'
+    },
+    {
+      question: 'What is special about staying in houseboats?',
+      answer: 'Kashmiri houseboats offer a unique, peaceful stay experience with traditional decor and warm hospitality.'
+    }
+  ]
+},
+  {
     id: 'manali',
-    name: 'Manali',
+    name: 'Shimla Manali',
     image:manali,
     price: '₹12,999',
     duration: '4 Days 3 Nights',
@@ -747,82 +1027,254 @@ export const destinations: Destination[] = [
       }
     ]
   },
-  {
-    id: 'paris',
-    name: 'Paris, France',
-    image:paris,
-    price: '₹75,999',
-    duration: '5 Days 4 Nights',
-    description: 'City of Love with iconic landmarks and culture',
-    category: 'foreign',
-    type: 'City',
-    overview: 'Paris, the City of Light and Love, is the capital of France known for its iconic landmarks, world-class museums, romantic atmosphere, and exquisite cuisine. From the Eiffel Tower to the Louvre, Paris offers an unforgettable cultural experience.',
-    highlights: [
-      'Eiffel Tower and Champs-Élysées',
-      'Louvre Museum and Notre-Dame',
-      'Seine River cruise',
-      'Montmartre and Sacré-Cœur',
-      'French cuisine and wine tasting',
-      'Palace of Versailles day trip'
-    ],
-    gallery: [
-      'https://images.pexels.com/photos/2474690/pexels-photo-2474690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/962464/pexels-photo-962464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/1183099/pexels-photo-1183099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ],
-    bestTime: 'Apr - Jun, Sep - Oct',
-    packages: [
-      {
-        name: 'Paris Classic Tour',
-        duration: '5 Days 4 Nights',
-        price: '₹75,999',
-        inclusions: [
-          'Central hotel accommodation',
-          'Daily breakfast',
-          'Airport transfers',
-          'City tour',
-          'Museum passes',
-          'Seine cruise'
-        ]
-      },
-      {
-        name: 'Paris Romantic Getaway',
-        duration: '6 Days 5 Nights',
-        price: '₹95,999',
-        inclusions: [
-          'Boutique hotel stay',
-          'Romantic dinners',
-          'Private tours',
-          'Champagne tasting',
-          'Photography session',
-          'Versailles excursion'
-        ]
-      },
-      {
-        name: 'Paris Art & Culture',
-        duration: '7 Days 6 Nights',
-        price: '₹85,999',
-        inclusions: [
-          'Art district hotel',
-          'Museum guided tours',
-          'Art workshops',
-          'Cultural performances',
-          'Cooking classes',
-          'Gallery visits'
-        ]
-      }
-    ],
-    faqs: [
-      {
-        question: 'Do I need a visa for France?',
-        answer: 'Indian citizens need a Schengen visa to visit France. Apply at the French consulate or VFS Global.'
-      },
-      {
-        question: 'What is the best way to get around Paris?',
-        answer: 'The Paris Metro is the most efficient way to travel. Consider getting a Navigo pass for multiple days.'
-      }
-    ]
-  },
+ {
+  id: 'nepal',
+  name: 'Nepal',
+  image: nepal,
+  price: '₹24,999',
+  duration: '5 Days 4 Nights',
+  description: 'A Himalayan adventure rich in culture and nature',
+  category: 'foreign',
+  region: 'Asia',
+  type: 'Mountain',
+  overview: 'Nepal, the land of the Himalayas, offers a blend of spirituality, adventure, and natural beauty. From Kathmandu’s temples to Pokhara’s lakes and Himalayan treks, it’s perfect for travelers seeking culture and thrill.',
+  highlights: [
+    'Visit UNESCO World Heritage Sites in Kathmandu',
+    'Boating at Phewa Lake in Pokhara',
+    'Breathtaking Himalayan views',
+    'Adventure sports like paragliding and trekking',
+    'Delicious momos and local cuisine'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/3428286/pexels-photo-3428286.jpeg',
+    'https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg',
+    'https://images.pexels.com/photos/1007655/pexels-photo-1007655.jpeg'
+  ],
+  bestTime: 'Oct - Apr',
+  packages: [
+    {
+      name: 'Classic Nepal Tour',
+      duration: '5 Days 4 Nights',
+      price: '₹24,999',
+      inclusions: [
+        'Hotel accommodation',
+        'Kathmandu & Pokhara sightseeing',
+        'Breakfast included',
+        'Airport transfers',
+        'Local guide'
+      ]
+    },
+    {
+      name: 'Adventure Nepal',
+      duration: '6 Days 5 Nights',
+      price: '₹29,999',
+      inclusions: [
+        'Mountain view resorts',
+        'Trekking day trip',
+        'Paragliding in Pokhara',
+        'All transfers',
+        'All meals included'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Do I need a visa to visit Nepal from India?',
+      answer: 'No visa is required for Indian citizens. Just carry a valid ID proof.'
+    },
+    {
+      question: 'Is Nepal safe for solo travelers?',
+      answer: 'Yes, Nepal is generally safe and tourist-friendly.'
+    }
+  ]
+}
+,
+{
+  id: 'vietnam',
+  name: 'Vietnam',
+  image: vietnam,
+  price: '₹39,999',
+  duration: '6 Days 5 Nights',
+  description: 'Vibrant cities, ancient culture, and scenic coastlines',
+  category: 'foreign',
+  region: 'Asia',
+  type: 'Cultural',
+  overview: 'Vietnam is a Southeast Asian gem with bustling cities, historical sites, lush landscapes, and stunning beaches. From Ha Long Bay to Hanoi’s old quarters, it offers an unforgettable journey.',
+  highlights: [
+    'Ha Long Bay cruise',
+    'Explore Hanoi & Ho Chi Minh City',
+    'Visit ancient towns like Hoi An',
+    'Delicious Vietnamese cuisine',
+    'Cultural shows and temples'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/1642123/pexels-photo-1642123.jpeg',
+    'https://images.pexels.com/photos/2672171/pexels-photo-2672171.jpeg',
+    'https://images.pexels.com/photos/2736270/pexels-photo-2736270.jpeg'
+  ],
+  bestTime: 'Nov - Apr',
+  packages: [
+    {
+      name: 'Vietnam Explorer',
+      duration: '6 Days 5 Nights',
+      price: '₹39,999',
+      inclusions: [
+        '3-star hotel accommodation',
+        'Ha Long Bay cruise',
+        'City tours',
+        'Daily breakfast',
+        'Transfers and entry tickets'
+      ]
+    },
+    {
+      name: 'Luxury Vietnam Voyage',
+      duration: '7 Days 6 Nights',
+      price: '₹54,999',
+      inclusions: [
+        '4-star stay in Hanoi and Hoi An',
+        'Gourmet Vietnamese meals',
+        'Private city tours',
+        'Cultural performances',
+        'Airport & intercity transfers'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Is visa required for Indians?',
+      answer: 'Yes, e-visa is available and easy to apply online.'
+    },
+    {
+      question: 'What currency is used in Vietnam?',
+      answer: 'Vietnamese Dong (VND), though USD is also accepted in many places.'
+    }
+  ]
+},
+
+{
+  id: 'malaysia',
+  name: 'Malaysia',
+  image: malaysia,
+  price: '₹34,999',
+  duration: '5 Days 4 Nights',
+  description: 'A tropical mix of culture, modernity, and nature',
+  category: 'foreign',
+  region: 'Asia',
+  type: 'City & Nature',
+  overview: 'Malaysia blends cosmopolitan cities like Kuala Lumpur with exotic rainforests, islands, and unique heritage. It’s perfect for those seeking city life, beach holidays, and cultural experiences all in one.',
+  highlights: [
+    'Visit the Petronas Twin Towers',
+    'Batu Caves and cultural temples',
+    'Langkawi island beaches',
+    'Shopping and nightlife',
+    'Theme parks and aquariums'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/208737/pexels-photo-208737.jpeg',
+    'https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg',
+    'https://images.pexels.com/photos/340874/pexels-photo-340874.jpeg'
+  ],
+  bestTime: 'Nov - Mar',
+  packages: [
+    {
+      name: 'Malaysia City & Beach Combo',
+      duration: '5 Days 4 Nights',
+      price: '₹34,999',
+      inclusions: [
+        'Stay in KL & Langkawi',
+        'Daily breakfast',
+        'City tours & beach activities',
+        'Airport transfers',
+        'Batu Caves tour'
+      ]
+    },
+    {
+      name: 'Malaysia Family Fun',
+      duration: '6 Days 5 Nights',
+      price: '₹41,999',
+      inclusions: [
+        'Family-friendly hotels',
+        'Entry to theme parks',
+        'City + Nature tours',
+        'All transfers',
+        'Local meals included'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Is visa on arrival available for Indians?',
+      answer: 'No, but Malaysia e-visa is available and easy to get online.'
+    },
+    {
+      question: 'What’s the best city to stay in Malaysia?',
+      answer: 'Kuala Lumpur for city life, Langkawi for beaches, and Penang for heritage.'
+    }
+  ]
+},
+
+{
+  id: 'sri-lanka',
+  name: 'Sri Lanka',
+  image: srilanka,
+  price: '₹29,999',
+  duration: '5 Days 4 Nights',
+  description: 'An island escape with history, beaches, and greenery',
+  category: 'foreign',
+  region: 'Asia',
+  type: 'Island',
+  overview: 'Sri Lanka offers everything from golden beaches to misty highlands, ancient ruins to wildlife safaris. Explore Colombo, Kandy, Nuwara Eliya, Galle, and more for a wholesome tropical experience.',
+  highlights: [
+    'Relax on Bentota & Mirissa beaches',
+    'Explore ancient temples & forts',
+    'Kandy’s Tooth Relic Temple',
+    'Scenic train ride to Ella',
+    'Tea estates and wildlife parks'
+  ],
+  gallery: [
+    'https://images.pexels.com/photos/208744/pexels-photo-208744.jpeg',
+    'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg',
+    'https://images.pexels.com/photos/1107097/pexels-photo-1107097.jpeg'
+  ],
+  bestTime: 'Dec - Apr',
+  packages: [
+    {
+      name: 'Sri Lanka Beach & Culture Tour',
+      duration: '5 Days 4 Nights',
+      price: '₹29,999',
+      inclusions: [
+        '3-star hotel stay',
+        'Colombo & Kandy sightseeing',
+        'Beach stay in Bentota',
+        'Daily breakfast',
+        'All transfers'
+      ]
+    },
+    {
+      name: 'Hill Country & Safari Trail',
+      duration: '6 Days 5 Nights',
+      price: '₹36,999',
+      inclusions: [
+        'Stay in Nuwara Eliya & Yala',
+        'Tea plantation tour',
+        'Wildlife safari',
+        'Train journey to Ella',
+        'All meals included'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Is visa required for Indians?',
+      answer: 'Yes, e-visa (ETA) is required and easily available online.'
+    },
+    {
+      question: 'Is Sri Lanka suitable for honeymoon?',
+      answer: 'Absolutely! Beaches, hill towns, and luxurious resorts make it ideal for romantic getaways.'
+    }
+  ]
+},
+
   {
     id: 'singapore',
     name: 'Singapore',

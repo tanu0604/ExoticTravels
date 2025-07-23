@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, MapPin, Phone, MessageCircle } from 'lucide-react';
-
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import logo from "../logo/logo.jpg";
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,41 +12,51 @@ const Navbar: React.FC = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Indian Trips', path: '/indian-trips' },
-    { name: 'Foreign Trips', path: '/foreign-trips' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' }
+    { name: "Home", path: "/" },
+    { name: "Indian Trips", path: "/indian-trips" },
+    { name: "Foreign Trips", path: "/foreign-trips" },
+    { name: "About Us", path: "/about" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <>
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-          : 'bg-white/90 backdrop-blur-sm shadow-md'
-      }`}>
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            : "bg-white/90 backdrop-blur-sm shadow-md"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                <MapPin className="h-5 w-5 text-white" />
-              </div>
+            <Link to="/" className="flex items-center space-x-4 group">
+              <img
+                src={logo}
+                alt="Exotic Travels Logo"
+                className="h-14 w-auto rounded-full max-h-16 transition-transform duration-300 group-hover:scale-105"
+              />
               <div className="hidden sm:block">
-                <div className="text-xl font-bold">
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Exotic</span>
-                  <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Travels</span>
+                <div className="text-2xl font-bold leading-tight">
+                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    Exotic
+                  </span>
+                  <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent ml-1">
+                    Travels
+                  </span>
                 </div>
-                <div className="text-xs text-gray-500 font-medium">Explore • Dream • Discover</div>
+                <div className="text-sm text-gray-500 font-medium">
+                  Your Dream… our destination!
+                </div>
               </div>
             </Link>
 
@@ -56,7 +66,9 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`nav-link ${isActive(item.path) ? 'active text-blue-600' : ''}`}
+                  className={`nav-link ${
+                    isActive(item.path) ? "active text-blue-600" : ""
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -82,7 +94,11 @@ const Navbar: React.FC = () => {
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -97,15 +113,15 @@ const Navbar: React.FC = () => {
                   to={item.path}
                   className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
                     isActive(item.path)
-                      ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      ? "text-blue-600 bg-blue-50 border-l-4 border-blue-600"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              
+
               {/* Mobile Contact Info */}
               <div className="pt-4 border-t border-gray-200">
                 <div className="flex items-center space-x-2 px-4 py-2 text-gray-600">
@@ -137,7 +153,7 @@ const Navbar: React.FC = () => {
             <MessageCircle className="h-6 w-6" />
           </div>
           <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20"></div>
-          
+
           {/* Tooltip */}
           <div className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
             Chat with us on WhatsApp
