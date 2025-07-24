@@ -21,28 +21,29 @@
 <body>
   <div id="root"></div>
 
-  <!-- 🔥 Chatbot container (optional if using overlay mode) -->
+  <!-- 🔥 Chatbot container (optional if overlay is enabled) -->
   <div id="vf-chat"></div>
 
+  <!-- 🧠 App Main Script -->
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- ✅ Updated Voiceflow Chatbot Script -->
+  <!-- ✅ Voiceflow Chatbot Script (Latest Version) -->
   <script type="text/javascript">
-    (function (d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function () {
-        window.voiceflow.chat.load({
-          verify: { projectID: '687bd8f70dde4cc3e9cb8370' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          }
-        });
-      };
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-      v.type = "text/javascript";
-      s.parentNode.insertBefore(v, s);
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '687bd8f70dde4cc3e9cb8370' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            }
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
     })(document, 'script');
   </script>
 </body>
