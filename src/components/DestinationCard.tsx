@@ -75,9 +75,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-              <DollarSign className="h-4 w-4 text-green-600" />
-            </div>
+            
             <div className="text-right">
               <p className="text-xs text-gray-500 font-medium">Starting from</p>
               <p className="text-lg font-bold text-green-600">{price}</p>
