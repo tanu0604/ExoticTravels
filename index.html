@@ -21,18 +21,28 @@
   <meta property="og:url" content="https://exotictravels.com" />
 
   <title>Exotic Travels - Explore India & Beyond | Kolkata Travel Agency</title>
+
+  <!-- ✅ Custom Style for Voiceglow Launcher -->
+  <style>
+    .vg-launcher__button img {
+      width: 180px !important;        /* 🔁 Adjust as needed */
+      height: 180px !important;
+      border-radius: 50%;            /* Optional: makes it circular */
+      object-fit: contain;
+    }
+  </style>
 </head>
 
 <body>
   <div id="root"></div>
 
-  <!-- ✅ Voiceglow Chatbot Integration -->
+  <div style="width: 80px; height: 80px;" id="VG_OVERLAY_CONTAINER">
   <script>
     window.addEventListener("DOMContentLoaded", function () {
       window.VG_CONFIG = {
         ID: "4XwVtMhkglCmn9P9t59e", // ✅ Your actual widget ID
         region: "na", // 'na' for North America or 'eu' for Europe
-          render: 'bottom-left', // Widget position
+        render: 'bottom-left', // Widget position
         autostart: true, // auto-open the chat on load
         stylesheets: [
           "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
@@ -45,6 +55,9 @@
     });
   </script>
 
+</div>
+  <!-- ✅ Voiceglow Chatbot Integration -->
+ 
   <!-- ✅ React App Entry -->
   <script type="module" src="/src/main.tsx"></script>
 </body>

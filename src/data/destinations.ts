@@ -1,26 +1,36 @@
-import goa from "./assests/goa.jpeg";
-import kerela from "./assests/kerela.jpeg";
-import manali from "./assests/manali.jpeg";
-import jaipur from "./assests/jaipur.jpeg";
-import ladakh from "./assests/ladak.jpeg";
-import andaman from "./assests/andaman.jpeg";
-import kashmir from "./assests/kashmir.jpeg"
-import dooars from "./assests/dooars.jpeg"
-import arunachal from "./assests/arunachal.jpeg"
-import bengal from "./assests/bengal.jpeg"
-import meghalaya from "./assests/meghalaya.jpeg"
+import goa from "./assests/goa/goa.jpeg"
+import kerela from "./assests/kerela/kerela.jpeg"
+import manali from "./assests/manali/manali.jpeg"
+import ladakh from "./assests/ladak/ladak.jpeg"
+import andaman from "./assests/andaman/andaman.jpeg"
+import kashmir from "./assests/kashmir/kashmir.jpeg"
+import dooars from "./assests/dooars/dooars.jpeg"
+import arunachal from "./assests/arunachal/arunachal.jpeg"
+import meghalaya from "./assests/meghalaya/meghalaya.jpeg"
+import bengal from "./assests/benagal/bengal.jpeg"
+
+import thailand from "./assests/thailand/thailand.jpeg"
+import bali from "./assests/bali/bali.jpeg"
+import maldives from "./assests/maldives/maldives.jpeg"
+import singapore from "./assests/singapore/singapore.jpeg"
+import nepal from "./assests/nepal/nepal.jpeg"
+import dubai from "./assests/dubai/dubai.jpeg"
+import srilanka from "./assests/srilanka/srilanka.jpeg"
+import malaysia from "./assests/malaysia/malaysia.jpeg"
+import kenya from "./assests/kenya/kenya.jpg"
+import vietnam from "./assests/vietnam/vietnam.jpeg"
 
 
-import bali from "./assests/bali.jpeg"
-import thailand from "./assests/thailand.jpeg"
-import singapore from "./assests/singapore.jpeg"
-import maldives from "./assests/maldives.jpeg"
-import dubai from "./assests/dubai.jpeg"
-import nepal from "./assests/nepal.jpeg"
-import srilanka from "./assests/srilanka.jpeg"
-import vietnam from "./assests/vietnam.jpeg"
-import malaysia from "./assests/malaysia.jpeg"
-import kenya from "./assests/kenya.jpg"
+// import bali from "./assests/bali.jpeg"
+// import thailand from "./assests/thailand.jpeg"
+// import singapore from "./assests/singapore.jpeg"
+// import maldives from "./assests/maldives.jpeg"
+// import dubai from "./assests/dubai.jpeg"
+// import nepal from "./assests/nepal.jpeg"
+// import srilanka from "./assests/srilanka.jpeg"
+// import vietnam from "./assests/vietnam.jpeg"
+// import malaysia from "./assests/malaysia.jpeg"
+// import kenya from "./assests/kenya.jpg"
 export interface Destination {
   id: string;
   name: string;
