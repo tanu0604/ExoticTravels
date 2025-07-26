@@ -70,18 +70,22 @@ const Footer: React.FC = () => {
                 <MapPin className="h-5 w-5 text-blue-400 mt-1" />
                 <div>
                   <p className="text-gray-300">
-                    123 Park Street, Kolkata<br />
-                    West Bengal 700016
+                  
+GD-36, 1312 Rajdanga Main Road Behind Mahasweta Devi Shangraha Shala Rashbehari Avenue Connector, Kolkata - 700107
                   </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
-                <p className="text-gray-300">+91 98765 43210</p>
+                <p className="text-gray-300">+91 9088019480 / +918016605108 </p>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400" />
-                <p className="text-gray-300">info@exotictravels.com</p>
+                <p className="text-gray-300">
+contact.exotictravels@gmail.com
+
+resrv.exotictravels@gmail.com
+</p>
               </div>
             </div>
           </div>
