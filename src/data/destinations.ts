@@ -71,6 +71,11 @@ import singapore1 from "./assests/singapore/1.jpg"
 import singapore2 from "./assests/singapore/2.jpg"
 import singapore3 from "./assests/singapore/3.jpg"
 
+import egypt from "./assests/egypt/egypt.jpg"
+import egypt1 from "./assests/egypt/1.jpg"
+import egypt2 from "./assests/egypt/2.jpg"
+import egypt3 from "./assests/egypt/3.jpg"
+
 import nepal from "./assests/nepal/nepal.jpeg"
 import nepal1 from "./assests/nepal/1.jpg"
 import nepal2 from "./assests/nepal/2.jpg"
@@ -961,7 +966,56 @@ export const destinations: Destination[] = [
         answer: 'Yes, it is generally safe when done with licensed operators and guides. Always follow safety instructions during the trip.'
       }
     ]
-  }
+  },
+
+  {
+  id: 'egypt-nilecairo',
+  name: 'Egypt (Cairo & Nile Cruise)',
+  image: egypt, // Replace with actual image import or path
+  price: 'Customizable',
+  duration: '7 Days 6 Nights',
+  description: '',
+  category: 'foreign',
+  region: 'Africa',
+  type: 'History + Culture + Cruise',
+  overview: 'Step into the land of pharaohs, pyramids, and the mighty Nile. Egypt offers an unforgettable journey through ancient history and modern marvels — from the bustling streets of Cairo to the serene beauty of a Nile cruise, this trip is a blend of exploration and enchantment.',
+  highlights: [
+    'Explore the Pyramids of Giza and the Sphinx',
+    'Visit the Egyptian Museum with Tutankhamun’s treasures',
+    'Relax on a luxury Nile River cruise with guided tours to Luxor and Aswan',
+    'Sound and Light Show at the Pyramids'
+  ],
+  gallery: [egypt1, egypt2, egypt3], // Add image imports or paths here
+  bestTime: 'October to April',
+  packages: [
+    {
+      name: 'Discover Egypt: Cairo & The Nile',
+      duration: '7 Days 6 Nights',
+      price: 'Customizable',
+      inclusions: [
+        '3 Nights in Cairo with breakfast',
+        '4 Nights on Nile Cruise (full board)',
+        'All airport transfers',
+        'Guided tours with English-speaking Egyptologist',
+        'Domestic flight Cairo–Aswan & Luxor–Cairo'
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: 'Is a visa required for Indian citizens to visit Egypt?',
+      answer: 'Yes, Indian citizens must apply for a tourist visa before traveling to Egypt.'
+    },
+    {
+      question: 'Is Egypt safe for tourists?',
+      answer: 'Yes, Egypt is generally safe for tourists, especially in tourist areas. Always follow local guidelines and travel advisories.'
+    },
+    {
+      question: 'What currency is used in Egypt?',
+      answer: 'The official currency is the Egyptian Pound (EGP). US Dollars and Euros are also widely accepted in tourist areas.'
+    }
+  ]
+}
 
 
 

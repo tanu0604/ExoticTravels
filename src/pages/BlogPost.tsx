@@ -358,7 +358,7 @@ const BlogPost: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-gray-800">Exotic Travels Team</h4>
-                    <p className="text-gray-600">Travel experts with over 15 years of experience in creating unforgettable journeys across India and beyond.</p>
+                    <p className="text-gray-600">Travel experts with over 10 years of experience in creating unforgettable journeys across India and beyond.</p>
                   </div>
                 </div>
               </div>

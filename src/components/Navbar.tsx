@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
             <div className="hidden lg:flex items-center space-x-6">
               <div className="flex items-center space-x-2 text-gray-600">
                 <Phone className="h-4 w-4" />
-                <span className="font-medium">+91 98765 43210</span>
+                <span className="font-medium">+91 90880 19480</span>
               </div>
               <Link
                 to="/contact"
@@ -126,7 +126,7 @@ const Navbar: React.FC = () => {
               <div className="pt-4 border-t border-gray-200">
                 <div className="flex items-center space-x-2 px-4 py-2 text-gray-600">
                   <Phone className="h-4 w-4" />
-                  <span className="font-medium">+91 98765 43210</span>
+                  <span className="font-medium">+91 90880 19480</span>
                 </div>
                 <Link
                   to="/contact"

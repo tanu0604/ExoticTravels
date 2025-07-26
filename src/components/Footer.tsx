@@ -176,19 +176,37 @@ const Footer: React.FC = () => {
                 <MapPin className="h-5 w-5 text-blue-400 mt-1" />
                 <div>
                   <p className="text-gray-300">
-                    123 Park Street, Kolkata
+                    GD-36, 1312 Rajdanga Main Road Behind Mahasweta Devi
+                    Shangraha Shala Rashbehari Avenue Connector, Kolkata
                     <br />
                     West Bengal 700016
                   </p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-blue-400" />
-                <p className="text-gray-300">+91 98765 43210</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-blue-400" />
-                <p className="text-gray-300">info@exotictravels.com</p>
+              <div className="flex flex-col space-y-2">
+                {/* Phone Numbers */}
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-5 w-5 text-blue-400" />
+                  <p className="text-gray-300">+91 90880 19480</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-5 w-5 text-blue-400" />
+                  <p className="text-gray-300">+91 80166 05108</p>
+                </div>
+
+                {/* Email Addresses */}
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-5 w-5 text-blue-400" />
+                  <p className="text-gray-300">
+                    contact.exotictravels@gmail.com
+                  </p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-5 w-5 text-blue-400" />
+                  <p className="text-gray-300">
+                    support.exotictravels@gmail.com
+                  </p>
+                </div>
               </div>
             </div>
           </div>

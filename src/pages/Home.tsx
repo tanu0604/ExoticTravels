@@ -225,7 +225,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
               {
-                number: 15,
+                number: 10,
                 suffix: "+",
                 label: "Years Experience",
                 icon: Award,
@@ -368,7 +368,7 @@ const Home: React.FC = () => {
               ?
             </h2>
             <p className="text-gray-600 text-xl max-w-4xl mx-auto leading-relaxed">
-              15+ years of creating unforgettable journeys for thousands of
+              10+ years of creating unforgettable journeys for thousands of
               satisfied travelers
             </p>
           </div>
@@ -379,7 +379,7 @@ const Home: React.FC = () => {
                 icon: Award,
                 title: "Expert Planning",
                 description:
-                  "15+ years of experience crafting perfect itineraries tailored to your dreams and preferences",
+                  "10+ years of experience crafting perfect itineraries tailored to your dreams and preferences",
                 color: "blue",
                 bgColor: "bg-blue-500",
                 lightBg: "bg-blue-50",
