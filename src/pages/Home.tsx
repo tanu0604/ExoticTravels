@@ -389,7 +389,7 @@ const Home: React.FC = () => {
                 icon: Shield,
                 title: "24/7 Support",
                 description:
-                  "Round-the-clock assistance throughout your journey, wherever you are in the world",
+                  "These freaking guys seriously - it's 1:30 in the night he isn't asleep",
                 color: "emerald",
                 bgColor: "bg-emerald-500",
                 lightBg: "bg-emerald-50",
