@@ -20,6 +20,7 @@ import nepal from "./assests/nepal.jpeg"
 import srilanka from "./assests/srilanka.jpeg"
 import vietnam from "./assests/vietnam.jpeg"
 import malaysia from "./assests/malaysia.jpeg"
+import kenya from "./assests/kenya.jpg"
 export interface Destination {
   id: string;
   name: string;
@@ -68,7 +69,7 @@ export interface BlogPost {
 
 export const destinations: Destination[] = [
   // Indian Destinations
-   {
+  {
     id: 'arunachal-pradesh',
     name: 'Arunachal Pradesh',
     image: arunachal,
@@ -111,7 +112,7 @@ export const destinations: Destination[] = [
     ]
   },
 
-   {
+  {
     id: 'andaman',
     name: 'Andaman',
     image: andaman,
@@ -153,7 +154,7 @@ export const destinations: Destination[] = [
     ]
   },
 
-   {
+  {
     id: 'shimla-manali',
     name: 'Shimla Manali',
     image: manali,
@@ -381,7 +382,7 @@ export const destinations: Destination[] = [
       },
     ],
   },
-    {
+  {
     id: 'kashmir',
     name: 'Kashmir',
     image: kashmir,
@@ -422,7 +423,7 @@ export const destinations: Destination[] = [
     ]
   },
 
-    {
+  {
     id: 'nepal',
     name: 'Nepal',
     image: nepal,
@@ -638,195 +639,242 @@ export const destinations: Destination[] = [
     ]
   },
   {
-  id: 'bali',
-  name: 'Bali',
-  image: bali,
-  price: '₹30,000',
-  duration: '6 Days 5 Nights',
-  description: '',
-  category: 'foreign',
-  region: 'Asia',
-  type: 'Island',
-  overview:'Bali, the “Island of the Gods,” is a breathtaking Indonesian paradise famous for its vibrant culture, serene beaches, lush rice terraces, and sacred temples. It blends relaxation with adventure — from surfing on Kuta’s waves to meditating in Ubud’s jungles. Known for its warm hospitality, tropical vibes, and spiritual essence, Bali attracts honeymooners, families, and solo explorers alike. Whether you seek beachside bliss, cultural experiences, or rejuvenating retreats, Bali offers something magical for everyone.' ,
-  highlights: [
-    'Relax on Kuta Beach',
-    'Explore Ubud\'s rice terraces and temples',
-    'Traditional Balinese culture and cuisine'
-  ],
-  gallery: [],
-  bestTime: 'April to October',
-  packages: [
-    {
-      name: 'Bali Tour',
-      duration: '6 Days 5 Nights',
-      price: '',
-      inclusions: [
-        '3 Nights Kuta',
-        '2 Nights Ubud'
-      ]
-    }
-  ],
-  faqs: [
-    {
-      question: 'Do Indian citizens need a visa for Bali?',
-      answer: 'Yes, but visa on arrival is available for Indian passport holders.'
-    },
-    {
-      question: 'What is the local currency in Bali?',
-      answer: 'The currency is Indonesian Rupiah (IDR).'
-    },
-    {
-      question: 'Is Bali a good destination for couples?',
-      answer: 'Yes, Bali is considered one of the top romantic and honeymoon destinations in Asia.'
-    }
-  ]
-},
+    id: 'bali',
+    name: 'Bali',
+    image: bali,
+    price: '₹30,000',
+    duration: '6 Days 5 Nights',
+    description: '',
+    category: 'foreign',
+    region: 'Asia',
+    type: 'Island',
+    overview: 'Bali, the “Island of the Gods,” is a breathtaking Indonesian paradise famous for its vibrant culture, serene beaches, lush rice terraces, and sacred temples. It blends relaxation with adventure — from surfing on Kuta’s waves to meditating in Ubud’s jungles. Known for its warm hospitality, tropical vibes, and spiritual essence, Bali attracts honeymooners, families, and solo explorers alike. Whether you seek beachside bliss, cultural experiences, or rejuvenating retreats, Bali offers something magical for everyone.',
+    highlights: [
+      'Relax on Kuta Beach',
+      'Explore Ubud\'s rice terraces and temples',
+      'Traditional Balinese culture and cuisine'
+    ],
+    gallery: [],
+    bestTime: 'April to October',
+    packages: [
+      {
+        name: 'Bali Tour',
+        duration: '6 Days 5 Nights',
+        price: '',
+        inclusions: [
+          '3 Nights Kuta',
+          '2 Nights Ubud'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Do Indian citizens need a visa for Bali?',
+        answer: 'Yes, but visa on arrival is available for Indian passport holders.'
+      },
+      {
+        question: 'What is the local currency in Bali?',
+        answer: 'The currency is Indonesian Rupiah (IDR).'
+      },
+      {
+        question: 'Is Bali a good destination for couples?',
+        answer: 'Yes, Bali is considered one of the top romantic and honeymoon destinations in Asia.'
+      }
+    ]
+  },
 
   {
-  id: 'thailand',
-  name: 'Thailand',
-  image: thailand,
-  price: '₹22,000',
-  duration: '5 Days 4 Nights to 6 Days 5 Nights',
-  description: '',
-  category: 'foreign',
-  region: 'Asia',
-  type: 'Beach + City',
-  overview: 'Thailand is a diverse destination offering a perfect blend of vibrant city life, cultural landmarks, and exotic beaches. From the bustling streets and temples of Bangkok to the lively beaches of Pattaya, and the scenic islands of Phuket and Krabi, Thailand promises unforgettable experiences for every kind of traveler. Enjoy water sports, island hopping, street food adventures, and vibrant nightlife in this tropical paradise.',
-  highlights: [
-    'Grand Palace and temples in Bangkok',
-    'Coral Island tour from Pattaya',
-    'Island hopping in Krabi and Phuket',
-    'Street food, nightlife, and Thai massages'
-  ],
-  gallery: [],
-  bestTime: 'November to April',
-  packages: [
-    {
-      name: 'Thailand Duo (Bangkok & Pattaya)',
-      duration: '5 Days 4 Nights',
-      price: '₹20,000',
-      inclusions: [
-        '2 Nights Bangkok',
-        '2 Nights Pattaya'
-      ]
-    },
-    {
-      name: 'Phuket & Krabi Escape',
-      duration: '5 Days 4 Nights',
-      price: '₹22,000',
-      inclusions: [
-        '2 Nights Phuket',
-        '2 Nights Krabi'
-      ]
-    }
-  ],
-  faqs: [
-    {
-      question: 'Do Indian passport holders need a visa for Thailand?',
-      answer: 'Yes, but visa on arrival is available for Indian citizens.'
-    },
-    {
-      question: 'Is Thailand safe for solo female travelers?',
-      answer: 'Yes, it is generally safe, but standard travel precautions should be followed.'
-    },
-    {
-      question: 'What currency is used in Thailand?',
-      answer: 'The currency used is Thai Baht (THB).'
-    }
-  ]
-},
+    id: 'thailand',
+    name: 'Thailand',
+    image: thailand,
+    price: '₹22,000',
+    duration: '5 Days 4 Nights to 6 Days 5 Nights',
+    description: '',
+    category: 'foreign',
+    region: 'Asia',
+    type: 'Beach + City',
+    overview: 'Thailand is a diverse destination offering a perfect blend of vibrant city life, cultural landmarks, and exotic beaches. From the bustling streets and temples of Bangkok to the lively beaches of Pattaya, and the scenic islands of Phuket and Krabi, Thailand promises unforgettable experiences for every kind of traveler. Enjoy water sports, island hopping, street food adventures, and vibrant nightlife in this tropical paradise.',
+    highlights: [
+      'Grand Palace and temples in Bangkok',
+      'Coral Island tour from Pattaya',
+      'Island hopping in Krabi and Phuket',
+      'Street food, nightlife, and Thai massages'
+    ],
+    gallery: [],
+    bestTime: 'November to April',
+    packages: [
+      {
+        name: 'Thailand Duo (Bangkok & Pattaya)',
+        duration: '5 Days 4 Nights',
+        price: '₹20,000',
+        inclusions: [
+          '2 Nights Bangkok',
+          '2 Nights Pattaya'
+        ]
+      },
+      {
+        name: 'Phuket & Krabi Escape',
+        duration: '5 Days 4 Nights',
+        price: '₹22,000',
+        inclusions: [
+          '2 Nights Phuket',
+          '2 Nights Krabi'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Do Indian passport holders need a visa for Thailand?',
+        answer: 'Yes, but visa on arrival is available for Indian citizens.'
+      },
+      {
+        question: 'Is Thailand safe for solo female travelers?',
+        answer: 'Yes, it is generally safe, but standard travel precautions should be followed.'
+      },
+      {
+        question: 'What currency is used in Thailand?',
+        answer: 'The currency used is Thai Baht (THB).'
+      }
+    ]
+  },
 
- {
-  id: 'vietnam',
-  name: 'Vietnam',
-  image: vietnam,
-  price: '₹39,000',
-  duration: '6 Days 5 Nights',
-  description: '',
-  category: 'foreign',
-  region: 'Asia',
-  type: 'Culture',
-  overview: 'Vietnam is a stunning blend of natural beauty and deep cultural heritage. From the bustling streets of Hanoi to the tranquil waters of Halong Bay and the charming coastal vibes of Danang, Vietnam offers travelers a journey through history, flavor, and breathtaking landscapes. It’s ideal for those seeking a mix of adventure, tradition, and scenic serenity.',
-  highlights: [
-    'Cruise the emerald waters of Halong Bay',
-    'Explore the Old Quarter of Hanoi',
-    'Relax at the beaches of Danang'
-  ],
-  gallery: [],
-  bestTime: 'March to April and September to November',
-  packages: [
-    {
-      name: 'Vietnam Trio',
-      duration: '6 Days 5 Nights',
-      price: '',
-      inclusions: [
-        '2 Nights Hanoi',
-        '1 Night Halong Bay',
-        '2 Nights Danang'
-      ]
-    }
-  ],
-  faqs: [
-    {
-      question: 'Do Indian citizens need a visa for Vietnam?',
-      answer: 'Yes, Indian citizens require a visa. E-visa is available and can be applied online.'
-    },
-    {
-      question: 'Is Vietnam safe for tourists?',
-      answer: 'Yes, Vietnam is generally safe for travelers, with friendly locals and well-developed tourism services.'
-    },
-    {
-      question: 'What currency is used in Vietnam?',
-      answer: 'Vietnamese Dong (VND) is the official currency.'
-    }
-  ]
-},
- {
-  id: 'maldives',
-  name: 'Maldives',
-  image: maldives,
-  price: '₹55,000',
-  duration: '5 Days 4 Nights',
-  description: '',
-  category: 'foreign',
-  region: 'Asia',
-  type: 'Island',
-  overview: 'The Maldives is a breathtaking tropical paradise in the Indian Ocean, renowned for its crystal-clear waters, pristine white-sand beaches, and luxurious overwater villas. Comprising over 1,000 coral islands, it offers a serene escape for travelers seeking relaxation, adventure, or romance. ',
-  highlights: [
-       'Snorkeling and diving in coral-rich waters',
-    'Luxury stays on private islands',
-    'Sunset views and serene beach walks'
-  ],
-  gallery: [],
-  bestTime:  'November to April',
-  packages: [
-    {
-       name: 'Maldives Retreat',
-      duration: '5 Days 4 Nights',
-      price: '',
-      inclusions: [
-        '4 Nights Maafushi Island'
-      ]
-    }
-  ],
-  faqs: [
-    {
-      question: 'Is a visa required for Indian citizens to visit Maldives?',
-      answer: 'No, Indian citizens get a free 30-day visa on arrival in the Maldives.'
-    },
-    {
-      question: 'Is Maldives suitable for family vacations?',
-      answer: 'Yes, while it is popular among honeymooners, many resorts offer great family-friendly amenities and activities.'
-    },
-    {
-      question: 'What currency is used in Maldives?',
-      answer: 'The local currency is Maldivian Rufiyaa (MVR), but USD is widely accepted in resorts and tourist areas.'
-    }
-  ]
-},
+  {
+    id: 'vietnam',
+    name: 'Vietnam',
+    image: vietnam,
+    price: '₹39,000',
+    duration: '6 Days 5 Nights',
+    description: '',
+    category: 'foreign',
+    region: 'Asia',
+    type: 'Culture',
+    overview: 'Vietnam is a stunning blend of natural beauty and deep cultural heritage. From the bustling streets of Hanoi to the tranquil waters of Halong Bay and the charming coastal vibes of Danang, Vietnam offers travelers a journey through history, flavor, and breathtaking landscapes. It’s ideal for those seeking a mix of adventure, tradition, and scenic serenity.',
+    highlights: [
+      'Cruise the emerald waters of Halong Bay',
+      'Explore the Old Quarter of Hanoi',
+      'Relax at the beaches of Danang'
+    ],
+    gallery: [],
+    bestTime: 'March to April and September to November',
+    packages: [
+      {
+        name: 'Vietnam Trio',
+        duration: '6 Days 5 Nights',
+        price: '',
+        inclusions: [
+          '2 Nights Hanoi',
+          '1 Night Halong Bay',
+          '2 Nights Danang'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Do Indian citizens need a visa for Vietnam?',
+        answer: 'Yes, Indian citizens require a visa. E-visa is available and can be applied online.'
+      },
+      {
+        question: 'Is Vietnam safe for tourists?',
+        answer: 'Yes, Vietnam is generally safe for travelers, with friendly locals and well-developed tourism services.'
+      },
+      {
+        question: 'What currency is used in Vietnam?',
+        answer: 'Vietnamese Dong (VND) is the official currency.'
+      }
+    ]
+  },
+  {
+    id: 'maldives',
+    name: 'Maldives',
+    image: maldives,
+    price: '₹55,000',
+    duration: '5 Days 4 Nights',
+    description: '',
+    category: 'foreign',
+    region: 'Asia',
+    type: 'Island',
+    overview: 'The Maldives is a breathtaking tropical paradise in the Indian Ocean, renowned for its crystal-clear waters, pristine white-sand beaches, and luxurious overwater villas. Comprising over 1,000 coral islands, it offers a serene escape for travelers seeking relaxation, adventure, or romance. ',
+    highlights: [
+      'Snorkeling and diving in coral-rich waters',
+      'Luxury stays on private islands',
+      'Sunset views and serene beach walks'
+    ],
+    gallery: [],
+    bestTime: 'November to April',
+    packages: [
+      {
+        name: 'Maldives Retreat',
+        duration: '5 Days 4 Nights',
+        price: '',
+        inclusions: [
+          '4 Nights Maafushi Island'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Is a visa required for Indian citizens to visit Maldives?',
+        answer: 'No, Indian citizens get a free 30-day visa on arrival in the Maldives.'
+      },
+      {
+        question: 'Is Maldives suitable for family vacations?',
+        answer: 'Yes, while it is popular among honeymooners, many resorts offer great family-friendly amenities and activities.'
+      },
+      {
+        question: 'What currency is used in Maldives?',
+        answer: 'The local currency is Maldivian Rufiyaa (MVR), but USD is widely accepted in resorts and tourist areas.'
+      }
+    ]
+  },
 
- 
+  {
+    id: 'kenya-masaimara',
+    name: 'Kenya (Masai Mara)',
+    image: kenya, // Replace with actual image import or path
+    price: '₹2,26,000',
+    duration: '7 Days 6 Nights',
+    description: '',
+    category: 'foreign',
+    region: 'Africa',
+    type: 'Safari + Nature',
+    overview: 'Kenya’s Masai Mara is the crown jewel of African safaris — a vast savannah where wildlife roams free and breathtaking sunsets light up the horizon. From thrilling game drives to encounters with the Big Five, this is your gateway to untamed adventure and cultural richness.',
+    highlights: [
+      'Witness the Great Migration (Jul–Oct)',
+      'Game drives with chances to see the Big Five',
+      'Cultural visits to Masai villages'
+    ],
+    gallery: [], // You can add image URLs or imports here
+    bestTime: 'July to October',
+    packages: [
+      {
+        name: 'Masai Mara Safari Adventure',
+        duration: '7 Days 6 Nights',
+        price: '',
+        inclusions: [
+          '2 Nights in Nairobi',
+          '3 Nights in Masai Mara with safari drives',
+          'Park entry fees and guided tours'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Is a visa required for Indian citizens to visit Kenya?',
+        answer: 'Yes, Indian citizens must apply for an eVisa online before traveling to Kenya.'
+      },
+      {
+        question: 'What is the Masai Mara famous for?',
+        answer: 'Masai Mara is renowned for its incredible wildlife, especially the annual Great Migration of wildebeests and zebras.'
+      },
+      {
+        question: 'Is it safe to go on a safari in Kenya?',
+        answer: 'Yes, it is generally safe when done with licensed operators and guides. Always follow safety instructions during the trip.'
+      }
+    ]
+  }
+
+
+
 ];
 
 export const testimonials: Testimonial[] = [
