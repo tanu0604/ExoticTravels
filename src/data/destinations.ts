@@ -1,24 +1,104 @@
 import goa from "./assests/goa/goa.jpeg"
+import goa1 from "./assests/goa/1.jpg"
+import goa2 from "./assests/goa/2.jpg"
+import goa3 from "./assests/goa/3.jpg"
+
 import kerela from "./assests/kerela/kerela.jpeg"
+import kerela1 from "./assests/kerela/1.jpeg"
+import kerela2 from "./assests/kerela/2.jpeg"
+import kerela3 from "./assests/kerela/3.jpeg"
+
 import manali from "./assests/manali/manali.jpeg"
+import manali1 from "./assests/manali/1.jpg"
+import manali2 from "./assests/manali/2.jpg"
+import manali3 from "./assests/manali/3.jpg"
+
 import ladakh from "./assests/ladak/ladak.jpeg"
+import ladakh1 from "./assests/ladak/1.jpg"
+import ladakh2 from "./assests/ladak/2.jpg"
+import ladakh3 from "./assests/ladak/3.jpg"
+
 import andaman from "./assests/andaman/andaman.jpeg"
+import andaman1 from "./assests/andaman/1.jpg"
+import andaman2 from "./assests/andaman/2.jpg"
+import andaman3 from "./assests/andaman/3.jpg"
+
+
 import kashmir from "./assests/kashmir/kashmir.jpeg"
+import kashmir1 from "./assests/kashmir/1.jpg"
+import kashmir2 from "./assests/kashmir/2.jpg"
+import kashmir3 from "./assests/kashmir/3.jpg"
+
+
 import dooars from "./assests/dooars/dooars.jpeg"
+import dooars1 from "./assests/dooars/1.jpeg"
+import dooars2 from "./assests/dooars/2.jpeg"
+import dooars3 from "./assests/dooars/3.jpeg"
+
+
 import arunachal from "./assests/arunachal/arunachal.jpeg"
+import arunachal1 from "./assests/arunachal/1.jpg"
+import arunachal2 from "./assests/arunachal/2.jpg"
+import arunachal3 from "./assests/arunachal/3.jpg"
+
 import meghalaya from "./assests/meghalaya/meghalaya.jpeg"
+import meghalaya1 from "./assests/meghalaya/1.jpg"
+import meghalaya2 from "./assests/meghalaya/2.jpg"
+import meghalaya3 from "./assests/meghalaya/3.jpg"
+
+
 import bengal from "./assests/benagal/bengal.jpeg"
+import bengal1 from "./assests/benagal/1.jpg"
+import bengal2 from "./assests/benagal/2.jpg"
 
 import thailand from "./assests/thailand/thailand.jpeg"
+import thailand1 from "./assests/thailand/1.jpg"
+import thailand2 from "./assests/thailand/2.jpg"
+import thailand3 from "./assests/thailand/3.jpg"
+
 import bali from "./assests/bali/bali.jpeg"
+import bali1 from "./assests/bali/1.jpg"
+import bali2 from "./assests/bali/2.jpg"
+import bali3 from "./assests/bali/3.jpg"
+
 import maldives from "./assests/maldives/maldives.jpeg"
+import maldives1 from "./assests/maldives/1.jpg"
+import maldives2 from "./assests/maldives/2.jpg"
+import maldives3 from "./assests/maldives/3.jpg"
+
 import singapore from "./assests/singapore/singapore.jpeg"
+import singapore1 from "./assests/singapore/1.jpg"
+import singapore2 from "./assests/singapore/2.jpg"
+import singapore3 from "./assests/singapore/3.jpg"
+
 import nepal from "./assests/nepal/nepal.jpeg"
+import nepal1 from "./assests/nepal/1.jpg"
+import nepal2 from "./assests/nepal/2.jpg"
+import nepal3 from "./assests/nepal/3.jpg"
+
 import dubai from "./assests/dubai/dubai.jpeg"
+import dubai1 from "./assests/dubai/1.jpg"
+import dubai2 from "./assests/dubai/2.jpg"
+import dubai3 from "./assests/dubai/3.jpg"
+
 import srilanka from "./assests/srilanka/srilanka.jpeg"
+import srilanka1 from "./assests/srilanka/1.jpg"
+import srilanka2 from "./assests/srilanka/2.jpg"
+import srilanka3 from "./assests/srilanka/3.jpg"
+
 import malaysia from "./assests/malaysia/malaysia.jpeg"
+import malaysia1 from "./assests/malaysia/1.jpg"
+import malaysia2 from "./assests/malaysia/2.jpg"
+import malaysia3 from "./assests/malaysia/3.jpg"
 import kenya from "./assests/kenya/kenya.jpg"
+import kenya2 from "./assests/kenya/1.jpg"
+import kenya3 from "./assests/kenya/2.jpg"
+import kenya1 from "./assests/kenya/3.jpg"
+
 import vietnam from "./assests/vietnam/vietnam.jpeg"
+import veitnam1 from "./assests/vietnam/1.jpg"
+import veitnam2 from "./assests/vietnam/2.jpg"
+import veitnam3 from "./assests/vietnam/3.jpg"
 
 
 // import bali from "./assests/bali.jpeg"
@@ -95,7 +175,7 @@ export const destinations: Destination[] = [
       'Visit Tawang Monastery, Sela Pass, and Jaswant Garh War Memorial',
       'Experience tribal culture and untouched natural beauty'
     ],
-    gallery: [],
+    gallery: [arunachal1,arunachal2,arunachal3],
     bestTime: 'October to April',
     packages: [
       {
@@ -138,7 +218,7 @@ export const destinations: Destination[] = [
       'Cellular Jail, Radhanagar Beach, and coral reefs exploration',
       'Ferry rides between islands and water adventure activities'
     ],
-    gallery: [],
+    gallery: [andaman1,andaman2,andaman3],
     bestTime: 'October to May',
     packages: [
       {
@@ -180,7 +260,7 @@ export const destinations: Destination[] = [
       'Mall Road, Kufri, Solang Valley, and Hidimba Temple',
       'Ideal for honeymooners, families, and adventure lovers'
     ],
-    gallery: [],
+    gallery: [manali1,manali2,manali3],
     bestTime: 'March to June and October to February',
     packages: [
       {
@@ -220,7 +300,7 @@ export const destinations: Destination[] = [
       'Khardung La Pass, Pangong Lake, and Diskit Monastery',
       'Camel ride in Hunder dunes and unique cultural immersion'
     ],
-    gallery: [],
+    gallery: [ladakh1,ladakh2,ladakh3],
     bestTime: 'May to September',
     packages: [
       {
@@ -261,7 +341,7 @@ export const destinations: Destination[] = [
       'Tea plantations, Periyar Wildlife Sanctuary, and serene backwaters',
       'Relaxing beach time and traditional Kerala cuisine'
     ],
-    gallery: [],
+    gallery: [kerela1,kerela2,kerela3],
     bestTime: 'October to March',
     packages: [
       {
@@ -303,7 +383,7 @@ export const destinations: Destination[] = [
       '2 nights in South Goa and 2 nights in North Goa',
       'Water sports, forts, churches, and beachside shacks',
     ],
-    gallery: [],
+    gallery: [goa1,goa2,goa3],
     bestTime: 'November to February',
     packages: [],
     faqs: [
@@ -330,7 +410,7 @@ export const destinations: Destination[] = [
       '2 nights in Murti and 2 nights in Jaldapara',
       'Jeep safaris, tea estates, and river walks',
     ],
-    gallery: [],
+    gallery: [dooars1,dooars2,dooars3],
     bestTime: 'October to March',
     packages: [],
     faqs: [
@@ -356,7 +436,7 @@ export const destinations: Destination[] = [
       '3 nights in Shillong, 1 night in Cherrapunji',
       'Waterfalls, caves, and double-decker root bridges',
     ],
-    gallery: [],
+    gallery: [meghalaya1,meghalaya2,meghalaya3],
     bestTime: 'October to April',
     packages: [],
     faqs: [
@@ -382,7 +462,7 @@ export const destinations: Destination[] = [
       '2 nights in Lamahatta and 2 nights in Lolegaon',
       'Village walks, homestay experiences, and forest trails',
     ],
-    gallery: [],
+    gallery: [bengal1,bengal2],
     bestTime: 'March to June, October to December',
     packages: [],
     faqs: [
@@ -408,7 +488,7 @@ export const destinations: Destination[] = [
       'Dal Lake shikara rides, Mughal Gardens, and Pahalgam valley views',
       'Perfect for romantic escapes and scenic tranquility'
     ],
-    gallery: [],
+    gallery: [kashmir1,kashmir2,kashmir3],
     bestTime: 'April to October',
     packages: [
       {
@@ -449,7 +529,7 @@ export const destinations: Destination[] = [
       'Pashupatinath Temple',
       'Scenic views of the Himalayas'
     ],
-    gallery: [],
+    gallery: [nepal1,nepal2,nepal3],
     bestTime: 'October to April',
     packages: [
       {
@@ -490,7 +570,7 @@ export const destinations: Destination[] = [
       'Visit the Temple of the Tooth',
       'Explore tea plantations and beaches'
     ],
-    gallery: [],
+    gallery: [srilanka1,srilanka2,srilanka3],
     bestTime: 'December to April',
     packages: [
       {
@@ -537,7 +617,7 @@ export const destinations: Destination[] = [
       'Sentosa Island adventures',
       'Shopping at Orchard Road'
     ],
-    gallery: [],
+    gallery: [singapore2,singapore1,singapore3],
     bestTime: 'February to April',
     packages: [
       {
@@ -580,7 +660,7 @@ export const destinations: Destination[] = [
       'Batu Caves and local markets',
       'Cultural exploration in Kuala Lumpur'
     ],
-    gallery: [],
+    gallery: [malaysia1,malaysia2,malaysia3],
     bestTime: 'December to April',
     packages: [
       {
@@ -623,7 +703,7 @@ export const destinations: Destination[] = [
       'Desert Safari with BBQ dinner',
       'Dhow Cruise and Marina Walk'
     ],
-    gallery: [],
+    gallery: [dubai1,dubai2,dubai3],
     bestTime: 'November to March',
     packages: [
       {
@@ -664,7 +744,7 @@ export const destinations: Destination[] = [
       'Explore Ubud\'s rice terraces and temples',
       'Traditional Balinese culture and cuisine'
     ],
-    gallery: [],
+    gallery: [bali1,bali2,bali3],
     bestTime: 'April to October',
     packages: [
       {
@@ -710,7 +790,7 @@ export const destinations: Destination[] = [
       'Island hopping in Krabi and Phuket',
       'Street food, nightlife, and Thai massages'
     ],
-    gallery: [],
+    gallery: [thailand1,thailand2,thailand3],
     bestTime: 'November to April',
     packages: [
       {
@@ -764,7 +844,7 @@ export const destinations: Destination[] = [
       'Explore the Old Quarter of Hanoi',
       'Relax at the beaches of Danang'
     ],
-    gallery: [],
+    gallery: [veitnam1,veitnam2,veitnam3],
     bestTime: 'March to April and September to November',
     packages: [
       {
@@ -809,7 +889,7 @@ export const destinations: Destination[] = [
       'Luxury stays on private islands',
       'Sunset views and serene beach walks'
     ],
-    gallery: [],
+    gallery: [maldives1,maldives2,maldives3],
     bestTime: 'November to April',
     packages: [
       {
@@ -853,7 +933,7 @@ export const destinations: Destination[] = [
       'Game drives with chances to see the Big Five',
       'Cultural visits to Masai villages'
     ],
-    gallery: [], // You can add image URLs or imports here
+    gallery: [kenya1,kenya2,kenya3], // You can add image URLs or imports here
     bestTime: 'July to October',
     packages: [
       {
